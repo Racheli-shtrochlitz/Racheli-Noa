@@ -1,9 +1,9 @@
 const RecipeDetails = () => {
-    return (
-        <>
-            RecipeDetails
-        </>
-    )
+  return (
+      <>
+          RecipeDetails
+      </>
+  )
 }
 
 export default RecipeDetails
