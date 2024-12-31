@@ -8,10 +8,6 @@
     "@mui/icons-material": "^6.3.0",
     "@mui/joy": "^5.0.0-beta.51",
     "@mui/material": "^6.3.0",
-<<<<<<< HEAD
-    "@reduxjs/toolkit": "^2.5.0",
-=======
->>>>>>> 1d77671f07ac1197066c1f6666bfe5f88947f08e
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

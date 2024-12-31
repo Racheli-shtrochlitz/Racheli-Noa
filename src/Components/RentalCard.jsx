@@ -10,9 +10,6 @@ import Stack from '@mui/joy/Stack';
 import Typography from '@mui/joy/Typography';
 import WorkspacePremiumRoundedIcon from '@mui/icons-material/WorkspacePremiumRounded';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
-import FmdGoodRoundedIcon from '@mui/icons-material/FmdGoodRounded';
-import KingBedRoundedIcon from '@mui/icons-material/KingBedRounded';
-import WifiRoundedIcon from '@mui/icons-material/WifiRounded';
 import Star from '@mui/icons-material/Star';
 import { useDispatch,useSelector } from 'react-redux';
 import { ChangeLike } from '../Store/RecipeListSlice';
@@ -25,18 +22,6 @@ type RentalCardProps = {
   title: React.ReactNode;
 };
 
-export default function RentalCard(props: RentalCardProps) {
-  const {star, index,category, title, rareFind = false, liked = false, image } = props;
-  const [isLiked, setIsLiked] = React.useState(liked);
-  //////////////
-  const dispatch = useDispatch()
-  const arrObj = useSelector(x => x.RecipeListSlice)
-  const Liked=()=>{
-    console.log(index)
-    setIsLiked((prev) => !prev)
-    dispatch(ChangeLike({isLiked,index}))
-    console.log(isLiked)
-  }
   return (
     <Card
       variant="outlined"
@@ -136,22 +121,6 @@ export default function RentalCard(props: RentalCardProps) {
             <FavoriteRoundedIcon />
           </IconButton>
         </Stack>
-        <Stack
-          spacing="0.25rem 1rem"
-          direction="row"
-          useFlexGap
-          sx={{ flexWrap: 'wrap', my: 0.25 }}
-        >
-          {/* <Typography level="body-xs" startDecorator={<FmdGoodRoundedIcon />}>
-            "זמן הכנה: "{arrObj.arr[index].time}
-          </Typography>
-          <Typography level="body-xs" startDecorator={<KingBedRoundedIcon />}>
-            1 bed
-          </Typography>
-          <Typography level="body-xs" startDecorator={<WifiRoundedIcon />}>
-            Wi-Fi
-          </Typography> */}
-        </Stack>
         <Stack direction="row" sx={{ mt: 'auto' }}>
           <Typography
             level="title-sm"
@@ -174,6 +143,5 @@ export default function RentalCard(props: RentalCardProps) {
         </Stack>
       </CardContent>
     </Card>
-    
   );
 }

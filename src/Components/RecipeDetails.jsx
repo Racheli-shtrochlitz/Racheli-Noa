@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-// const RecipeDetails = () => {
-//   return (
-//       <>
-//           RecipeDetails
-//       </>
-//   )
-// }
-
-// export default RecipeDetails
-
-
-
-
-
 import * as React from 'react';
 import AspectRatio from '@mui/joy/AspectRatio';
 import Button from '@mui/joy/Button';
