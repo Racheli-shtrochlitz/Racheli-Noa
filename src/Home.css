@@ -24,7 +24,7 @@ html {
     position: relative;
     text-align: center;
     height: 100vh;
-    background-image: url('../img/1.jpg');
+    background-image: url('./img/1.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -166,22 +166,22 @@ html {
 @keyframes backgroundAnimation {
     0% {
         opacity: 1;
-        background-image: url('../img/1.jpg');
+        background-image: url('./img/1.jpg');
     }
 
     33% {
         opacity: 1;
-        background-image: url('../img/2.jpg');
+        background-image: url('./img/2.jpg');
     }
 
     66% {
         opacity: 1;
-        background-image: url('../img/3.jpg');
+        background-image: url('./img/3.jpg');
     }
 
     100% {
         opacity: 1;
-        background-image: url('../img/1.jpg');
+        background-image: url('./img/1.jpg');
     }
 }
 
@@ -285,7 +285,7 @@ html {
     position: relative;
     text-align: center;
     height: 100vh;
-    background-image: url('../img/1.jpg');
+    background-image: url('./img/1.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -427,22 +427,22 @@ html {
 @keyframes backgroundAnimation {
     0% {
         opacity: 1;
-        background-image: url('../img/1.jpg');
+        background-image: url('./img/1.jpg');
     }
 
     33% {
         opacity: 1;
-        background-image: url('../img/2.jpg');
+        background-image: url('./img/2.jpg');
     }
 
     66% {
         opacity: 1;
-        background-image: url('../img/3.jpg');
+        background-image: url('./img/3.jpg');
     }
 
     100% {
         opacity: 1;
-        background-image: url('../img/1.jpg');
+        background-image: url('./img/1.jpg');
     }
 }
 

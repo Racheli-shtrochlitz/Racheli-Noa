@@ -1,9 +1,10 @@
-import './Home.css';
-import ResponsiveAppBar from './AppBar';
+import '../Home.css';
+import ResponsiveAppBar from './ResponsiveAppBar';
 import ChangingText from './ChangingText';
 import recipe1 from '../img/recipe1.jpg';
 import recipe2 from '../img/recipe2.jpg';
 import zIndex from '@mui/material/styles/zIndex';
+import { Router } from 'react-router-dom';
 
 const Home = () => {
 
@@ -21,7 +22,7 @@ const Home = () => {
     return (
         <div className="container">
             <header>
-                <ResponsiveAppBar sx={{ zIndex: 7 }} />
+                {/* <ResponsiveAppBar sx={{ zIndex: 7 }} /> */}
             </header>
             <main>
                 <h1 className="welcome-title">ברוכים הבאים לאתר המתכונים שלנו!</h1>

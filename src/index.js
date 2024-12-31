@@ -1,3 +1,60 @@
+// import React from 'react';
+// import ReactDOM from 'react-dom/client';
+// import './index.css';
+// import App from './App';
+// import reportWebVitals from './reportWebVitals';
+// import { BrowserRouter } from 'react-router-dom';
+// import { configureStore } from '@reduxjs/toolkit';
+// import UserSlice from './Store/UserSlice';
+// import RecipeListSlice from './Store/RecipeListSlice';
+// import { Provider } from 'react-redux'; 
+// import { CssVarsProvider, ThemeProvider,extendTheme } from '@mui/joy/styles';
+
+// const theme = extendTheme({
+//   colorSchemes: {
+//     light: {
+//       palette: {
+//         background: {
+//           default: '#f5f5f5', // Updated to use 'default' correctly
+//         },
+//       },
+//     },
+//     dark: {
+//       palette: {
+//         background: {
+//           default: '#121212', // Updated to use 'default' correctly
+//         },
+//       },
+//     },
+//   },
+// });
+
+// const root = ReactDOM.createRoot(document.getElementById('root'));
+// const myStore = configureStore({
+//   reducer: {
+//     UserSlice,
+//     RecipeListSlice,
+//   },
+// });
+
+// root.render(
+// <React.StrictMode>
+//   <CssVarsProvider>
+//   <ThemeProvider theme={theme}>
+//     <BrowserRouter>
+//       <Provider store={myStore}>
+//         <App />
+//       </Provider>
+//     </BrowserRouter>
+//     </ThemeProvider>
+//     </CssVarsProvider>
+//     </React.StrictMode>
+// );
+
+// reportWebVitals();
+
+
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -7,27 +64,56 @@ import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import UserSlice from './Store/UserSlice';
 import RecipeListSlice from './Store/RecipeListSlice';
-import { Provider } from 'react-redux'
-import { CssVarsProvider } from '@mui/joy/styles';
+import { Provider } from 'react-redux'; 
+import { CssVarsProvider, ThemeProvider, extendTheme } from '@mui/joy/styles';
+
+const theme = extendTheme({
+  colorSchemes: {
+    light: {
+      palette: {
+        primary: {
+          main: '#1976d2', // ערך לדוגמה
+        },
+        background: {
+          default: '#f5f5f5',
+        },
+      },
+    },
+    dark: {
+      palette: {
+        primary: {
+          main: '#bb86fc', // ערך לדוגמה
+        },
+        background: {
+          default: '#121212',
+        },
+      },
+    },
+  },
+});
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const myStore = configureStore({
-  reducer:{
+  reducer: {
     UserSlice,
-    RecipeListSlice
-  }
-})
+    RecipeListSlice,
+  },
+});
+
 root.render(
-  <BrowserRouter>
-  <CssVarsProvider>
-  <Provider store={myStore}>
-    <App />
-    </Provider>
+  <React.StrictMode>
+    <CssVarsProvider theme={theme}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Provider store={myStore}>
+            <App />
+          </Provider>
+        </BrowserRouter>
+      </ThemeProvider>
     </CssVarsProvider>
-  </BrowserRouter>
+  </React.StrictMode>
 );
 
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
