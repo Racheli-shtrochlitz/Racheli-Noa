@@ -17,6 +17,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 const pages = ['דף הבית', 'מתכונים', 'התחברות'];
 const settings = ['הפרופיל שלי', 'חשבון', 'התנתק'];
 const pageLinks = ['/', '/RecipeDetails', '/Login'];
+const settingsLinks = ['/profile', '/account', '/logout'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -169,17 +170,19 @@ function ResponsiveAppBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
+                            {settings.map((setting, index) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography
-                                        sx={{
-                                            textAlign: 'center',
-                                            fontSize: '16px',
-                                            fontFamily: 'Arial, sans-serif',
-                                        }}
-                                    >
-                                        {setting}
-                                    </Typography>
+                                    <Link to={settingsLinks[index]} style={{ textDecoration: 'none', color: 'inherit' }}>
+                                        <Typography
+                                            sx={{
+                                                textAlign: 'center',
+                                                fontSize: '16px',
+                                                fontFamily: 'Arial, sans-serif',
+                                            }}
+                                        >
+                                            {setting}
+                                        </Typography>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -187,7 +190,6 @@ function ResponsiveAppBar() {
                 </Toolbar>
             </Container>
         </AppBar>
-
     );
 }
 export default ResponsiveAppBar;

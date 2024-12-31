@@ -1,3 +1,4 @@
+
 import * as React from 'react';
 import { CssVarsProvider } from '@mui/joy/styles';
 import CssBaseline from '@mui/joy/CssBaseline';
@@ -10,10 +11,8 @@ import RentalCard from './RentalCard';
 //import Filters from './components/Filters';
 import Pagination from './Pagination';
 import { AddRecipe } from '../Store/RecipeListSlice'
-import { useState } from 'react';
 import { useSelector, useDispatch } from "react-redux"
 export default function RentalDashboard() {
-    const [index,setindex]=useState(0)
     const dispatch = useDispatch()
     const arrObj = useSelector(x => x.RecipeListSlice)
     return (

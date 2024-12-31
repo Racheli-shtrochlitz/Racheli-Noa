@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // const RecipeDetails = () => {
 //   return (
 //       <>
