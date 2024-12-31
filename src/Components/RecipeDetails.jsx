@@ -1,8 +1,10 @@
+import ResponsiveAppBar from "./AppBar"
+
 const RecipeDetails = () => {
   return (
-      <>
-          RecipeDetails
-      </>
+      <div>
+        <ResponsiveAppBar/>
+      </div>
   )
 }
 

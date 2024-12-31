@@ -1,15 +1,23 @@
-import './Home.css'
-import './AppBar'
-import ResponsiveAppBar from './AppBar'
-import image1 from '../img/1.jpg'
+import './Home.css';
+import './AppBar';
+import ResponsiveAppBar from './AppBar';
 
 const Home = () => {
     return (
-         <div className="container">
-            {/* <img src={image1} alt="תמונה ראשית אתר מתכונים" className="center-image" /> */}
-            <ResponsiveAppBar/>
-         </div>
-    )
-}
+        <div className="container">
+            <ResponsiveAppBar />
+            
+            {/* Search Box */}
+            <div className="search-box-container">
+                <input
+                    type="text"
+                    className="search-box"
+                    placeholder="חיפוש מתכונים..."
+                />
+                <button className="search-button">חפש</button>
+            </div>
+        </div>
+    );
+};
 
-export default Home
+export default Home;

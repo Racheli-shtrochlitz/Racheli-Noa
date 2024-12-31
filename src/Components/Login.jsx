@@ -1,8 +1,10 @@
+import ResponsiveAppBar from "./AppBar"
+
 const Login = () => {
     return (
-        <>
-            Login
-        </>
+        <div>
+            <ResponsiveAppBar/>
+        </div>
     )
 }
 
