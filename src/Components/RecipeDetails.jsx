@@ -21,8 +21,10 @@ import CardContent from '@mui/joy/CardContent';
 import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
 import BookmarkAdd from '@mui/icons-material/BookmarkAddOutlined';
+import { useParams } from 'react-router-dom';
 
 export default function BasicCard() {
+  const { id } = useParams();
   return (
     <Card sx={{ width: 320 }}>
       <div>
