@@ -12,6 +12,7 @@ import RentalCard from './RentalCard';
 import Pagination from './Pagination';
 import { AddRecipe } from '../Store/RecipeListSlice'
 import { useSelector, useDispatch } from "react-redux"
+import ResponsiveAppBar from './AppBar';
 export default function RentalDashboard() {
     const dispatch = useDispatch()
     const arrObj = useSelector(x => x.RecipeListSlice)
@@ -19,6 +20,7 @@ export default function RentalDashboard() {
         <CssVarsProvider disableTransitionOnChange>
             <CssBaseline />
             {/* <NavBar /> */}
+            {/* <ResponsiveAppBar /> */}
             <Box
                 component="main"
                 sx={{
@@ -52,18 +54,18 @@ export default function RentalDashboard() {
                 />
                 <Stack spacing={2} sx={{ px: { xs: 2, md: 4 }, pt: 2, minHeight: 0 }}>
                     {/* <Filters /> */}
-                   
+
                     <Stack spacing={2} sx={{ overflow: 'auto' }}>
                         {arrObj.arr.map(element => (
                             <RentalCard
-                            star={element.star}
+                                star={element.star}
                                 index={element.id}
                                 title={element.name}
                                 category={element.category}
                                 // rareFind
                                 image='../img/1.jpg'
                             />
-                            ))}
+                        ))}
                     </Stack>
                 </Stack>
                 <Pagination />

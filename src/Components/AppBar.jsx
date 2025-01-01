@@ -16,7 +16,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 
 const pages = ['דף הבית', 'מתכונים', 'התחברות'];
 const settings = ['הפרופיל שלי', 'חשבון', 'התנתק'];
-const pageLinks = ['/', '/RecipeDetails', '/Login'];
+const pageLinks = ['/', '/RecipeList', '/Login'];
 const settingsLinks = ['/profile', '/account', '/logout'];
 
 function ResponsiveAppBar() {

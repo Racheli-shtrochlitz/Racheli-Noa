@@ -1,4 +1,4 @@
-import './Home.css';
+import '../Home.css';
 import ResponsiveAppBar from './AppBar';
 import ChangingText from './ChangingText';
 import recipe1 from '../img/recipe1.jpg';
@@ -23,7 +23,7 @@ const Home = () => {
             <header>
                 <ResponsiveAppBar sx={{ zIndex: 7 }} />
             </header>
-            <main>
+            <main style={{ marginTop: '80px', paddingBottom: '60px', zIndex: 1 }}>
                 <h1 className="welcome-title">ברוכים הבאים לאתר המתכונים שלנו!</h1>
                 <p className="welcome-description">
                     מצא מתכונים <ChangingText /> שמתאימים לך בקלות.
