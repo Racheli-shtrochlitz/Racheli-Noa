@@ -1,40 +1,258 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialValue = {
-    arr: [{id:0,name:"לחם כפרי",time:"1 שעה",category:"חלבי",like:false,star:4,image:"1"},
-        {id:1,name:"לחם כפרי ",time:"3 שעות",category:"פרווה",like:false,star:1,image:"1"},
-        {id:2,name:" עוף בסילאן",time:"1 שעה",category:"בשרי",like:false,star:3,image:"1"},
-        {id:3,name:"סלט רימונים",time:" 10 דקות",category:"בשרי",like:false,star:5,image:"1"},
-        {id:4,name:" שייק פירות מרענן",time:"3 שעות",category:"פרווה",like:false,star:4,image:"1"},
-        {id:5,name:"סלט רימונים",time:" 10 דקות",category:"פרווה",like:false,star:2,image:"1"},
-        {id:6,name:"לחם כפרי",time:"1 שעה",category:"חלבי",like:false,star:4,image:"1"},
-        {id:7,name:"לחם כפרי ",time:"3 שעות",category:"פרווה",like:false,star:1,image:"1"},
-        {id:8,name:" עוף בסילאן",time:"1 שעה",category:"בשרי",like:false,star:3,image:"1"},
-        {id:9,name:"סלט רימונים",time:" 10 דקות",category:"בשרי",like:false,star:5,image:"1"},
-        {id:10,name:" שייק פירות מרענן",time:"3 שעות",category:"פרווה",like:false,star:4,image:"1"},
-        {id:5,name:"סלט רימונים",time:" 10 דקות",category:"פרווה",like:false,star:2,image:"1"},
-        {id:0,name:"לחם כפרי",time:"1 שעה",category:"חלבי",like:false,star:4,image:"1"},
-        {id:1,name:"לחם כפרי ",time:"3 שעות",category:"פרווה",like:false,star:1,image:"1"},
-        {id:2,name:" עוף בסילאן",time:"1 שעה",category:"בשרי",like:false,star:3,image:"1"},
-        {id:3,name:"סלט רימונים",time:" 10 דקות",category:"בשרי",like:false,star:5,image:"1"},
-        {id:4,name:" שייק פירות מרענן",time:"3 שעות",category:"פרווה",like:false,star:4,image:"1"},
-        {id:5,name:"סלט רימונים",time:" 10 דקות",category:"פרווה",like:false,star:2,image:"1"}]
-}
+const initialState = {
+    arr: [
+      {
+        id: 0,
+        name: "לחם כפרי",
+        time: "1 שעה",
+        category: "חלבי",
+        like: false,
+        image: "0",
+        products: ["קמח", "מים", "שמרים", "מלח", "חמאה"],
+        instructions: [
+          "מערבבים את הקמח והשמרים בקערה.",
+          "מוסיפים מים ולשים עד לקבלת בצק רך.",
+          "מוסיפים מלח וחמאה וממשיכים ללוש.",
+          "מתפיחים שעה, מעצבים ואופים בתנור בחום של 200 מעלות למשך 25 דקות."
+        ]
+      },
+      {
+        id: 1,
+        name: "לחם כפרי - גרסה לפרווה",
+        time: "3 שעות",
+        category: "פרווה",
+        like: false,
+        image: "1",
+        products: ["קמח", "מים", "שמרים", "מלח", "שמן זית"],
+        instructions: [
+          "מערבבים את הקמח והשמרים בקערה.",
+          "מוסיפים מים ולשים עד לקבלת בצק רך.",
+          "מוסיפים מלח ושמן זית וממשיכים ללוש.",
+          "מתפיחים 3 שעות, מעצבים ואופים בתנור בחום של 200 מעלות למשך 30 דקות."
+        ]
+      },
+      {
+        id: 2,
+        name: "עוף בסילאן",
+        time: "1 שעה",
+        category: "בשרי",
+        like: false,
+        image: "2",
+        products: ["עוף", "סילאן", "שמן זית", "שום", "רוזמרין"],
+        instructions: [
+          "מערבבים סילאן, שמן זית, שום ורוזמרין.",
+          "מצפים את העוף בתערובת.",
+          "מכניסים לתנור בחום של 180 מעלות למשך 40 דקות.",
+          "מגישים חם לצד ירקות טריים."
+        ]
+      },
+      {
+        id: 3,
+        name: "סלט רימונים",
+        time: "10 דקות",
+        category: "בשרי",
+        like: false,
+        image: "3",
+        products: ["גרגרי רימון", "נענע", "שמן זית", "לימון", "אגוזי מלך"],
+        instructions: [
+          "שמים את כל המרכיבים בקערה.",
+          "מתבלים בשמן זית ומיץ לימון.",
+          "מערבבים בעדינות ומגישים מיד."
+        ]
+      },
+      {
+        id: 4,
+        name: "שייק פירות מרענן",
+        time: "5 דקות",
+        category: "פרווה",
+        like: false,
+        image: "4",
+        products: ["תותים", "בננות", "מיץ תפוזים", "קוביות קרח"],
+        instructions: [
+          "מכניסים את כל המרכיבים לבלנדר.",
+          "מערבלים עד לקבלת מרקם חלק.",
+          "מגישים בכוסות עם קישוט של פרוסת תפוז."
+        ]
+      },
+      {
+        id: 5,
+        name: "סלט רימונים - גרסה לפרווה",
+        time: "10 דקות",
+        category: "פרווה",
+        like: false,
+        image: "5",
+        products: ["גרגרי רימון", "נענע", "שמן זית", "לימון", "שקדים פרוסים"],
+        instructions: [
+          "שמים את כל המרכיבים בקערה.",
+          "מתבלים בשמן זית ומיץ לימון.",
+          "מערבבים בעדינות ומגישים מיד."
+        ]
+      },
+      {
+        id: 6,
+        name: "פסטה ברוטב עגבניות",
+        time: "20 דקות",
+        category: "פרווה",
+        like: false,
+        image: "6",
+        products: ["פסטה", "עגבניות מרוסקות", "שום", "שמן זית", "בזיליקום טרי"],
+        instructions: [
+          "מבשלים את הפסטה לפי הוראות היצרן.",
+          "מחממים שמן זית במחבת ומטגנים את השום.",
+          "מוסיפים עגבניות מרוסקות ומבשלים 10 דקות.",
+          "מערבבים את הרוטב עם הפסטה ומוסיפים בזיליקום טרי מעל."
+        ]
+      },
+      {
+        id: 7,
+        name: "עוגת שוקולד קלה",
+        time: "45 דקות",
+        category: "חלבי",
+        like: false,
+        image: "7",
+        products: ["שוקולד מריר", "קמח", "סוכר", "ביצים", "חמאה"],
+        instructions: [
+          "ממיסים שוקולד וחמאה יחד בקערה.",
+          "מוסיפים סוכר וביצים ומערבבים היטב.",
+          "מוסיפים קמח ומערבבים עד לקבלת תערובת חלקה.",
+          "אופים בתנור בחום של 180 מעלות למשך 30 דקות."
+        ]
+      },
+      {
+        id: 8,
+        name: "חביתה ירוקה",
+        time: "10 דקות",
+        category: "חלבי",
+        like: false,
+        image: "8",
+        products: ["ביצים", "תרד", "גבינה מלוחה", "שמן זית"],
+        instructions: [
+          "מחממים שמן זית במחבת.",
+          "מטגנים את התרד עד שהוא מצטמצם.",
+          "מערבבים ביצים עם גבינה ומוסיפים למחבת.",
+          "מטגנים עד שהחביתה מוכנה ומגישים חם."
+        ]
+      },
+      {
+        id: 9,
+        name: "לחם כפרי",
+        time: "3 שעות",
+        category: "חלבי",
+        like: false,
+        image: "9",
+        products: [
+          "500 גרם קמח (רצוי קמח לחם או קמח כפרי)",
+          "10 גרם מלח (כפית וחצי)",
+          "7 גרם שמרים יבשים (או 20 גרם שמרים טריים)",
+          "350 מל מים פושרים",
+          "1 כף שמן זית (אופציונלי)"
+        ],
+        instructions: [
+          "בקערה גדולה, ערבב את הקמח והמלח.",
+          "הוסף את השמרים והמים בהדרגה תוך כדי ערבוב עד שמתקבל בצק רך ואחיד.",
+          "לוש את הבצק במשך 8-10 דקות עד שהוא גמיש ואחיד.",
+          "הנח את הבצק בקערה משומנת, כסה והשאר לתפוח למשך שעה עד שעה וחצי.",
+          "עצב את הבצק לצורה הרצויה.",
+          "הנח את הבצק על תבנית או בסלסלת התפחה, כסה והשאר ל-30–45 דקות נוספות.",
+          "חמם את התנור ל-220 מעלות צלזיוס ואפה למשך 30–35 דקות."
+        ]
+      },
+      {
+        id: 10,
+        name: "עוף בסילאן",
+        time: "1 שעה",
+        category: "בשרי",
+        like: false,
+        image: "10",
+        products: [
+          "4 חתיכות עוף",
+          "2 כפות סילאן",
+          "1 כף דחוסה של סוכר חום",
+          "1 כף מלח",
+          "1/2 כוס מים",
+          "תבלינים: פפריקה, כמון, קימל"
+        ],
+        instructions: [
+          "במערבל או בקערה ערבב את הסילאן, סוכר חום, מלח ותבלינים.",
+          "הנח את העוף במרינדה למשך 30 דקות לפחות.",
+          "חמם שמן במחבת גדולה והנח את העוף.",
+          "הכנס את העוף לתנור חם על 180 מעלות למשך 30 דקות.",
+          "הגיש עם אורז או סלט טרי."
+        ]
+      },
+      {
+        id: 11,
+        name: "סלט ירקות",
+        time: "10 דקות",
+        category: "פרווה",
+        like: false,
+        image: "11",
+        products: [
+          "1 מלפפון",
+          "2 עגבניות",
+          "1 בצל קטן",
+          "1 פלפל ירוק",
+          "1/2 כוס פטרוזיליה קצוצה",
+          "מיץ מלימון אחד",
+          "מלח ופלפל שחור"
+        ],
+        instructions: [
+          "חותכים את המלפפון, העגבניות, הפלפלים והבצל.",
+          "מערבבים את כל המרכיבים בקערה גדולה.",
+          "מוסיפים מלח, פלפל שחור ומיץ לימון לפי הטעם.",
+          "מגישים מייד או שומרים במקרר עד להגשה."
+        ]
+      },
+      {
+        id: 12,
+        name: "שייק פירות",
+        time: "5 דקות",
+        category: "פרווה",
+        like: false,
+        image: "12",
+        products: [
+          "1 בננה",
+          "1 כוס תותים",
+          "1/2 כוס מים או חלב סויה",
+          "1 כף דחוסה של דחוס סוכר חום"
+        ],
+        instructions: [
+          "מקלפים את הבננה ומניחים אותה בבלנדר.",
+          "הוסיפו את התותים והחלב סויה.",
+          "ערבבו בבלנדר עד שהתערובת חלקה ומאוזנת.",
+          "הוסיפו קוביות קרח לפי הצורך והגישו מייד."
+        ]
+      }
+    ]
+  }
+  
 
 const recipeListSlice = createSlice({
-    name: "RecipesArr",
-    initialState: initialValue,
-    reducers: {
-        AddRecipe: (state, actions) => {
-            state.arr.push(actions.payload )  
-        },
-        ChangeLike: (state, actions) => {
-            state.arr[actions.payload.index].like=actions.payload.isLiked 
-            console.log(state.arr[0].like)
-        }
+  name: "RecipesArr",
+  initialState: initialState,
+  reducers: {
+    AddRecipe: (state, actions) => {
+      state.arr.push(actions.payload);
+    },
+     ChangeLike : (state, action) => {
+      const { index, isLiked } = action.payload;
+    
+      // ודא שהמערך לא undefined ושהאינדקס בתוך הגבולות
+      if (state.arr[index]) {
+        const newArr = [...state.arr];
+        newArr[index] = { ...newArr[index], liked: isLiked };
+        console.log(isLiked)
+        console.log(newArr[index])
+        return { ...state, arr: newArr };
+      }
+    
+      // אם המערך לא מוגדר או האינדקס מחוץ לטווח, לא לעשות כלום או להחזיר את המצב הקודם
+      return state;
     }
+    
+  }
+});
 
-})
-
-export const {AddRecipe,ChangeLike} = recipeListSlice.actions
-export default recipeListSlice.reducer
+export const { AddRecipe, ChangeLike } = recipeListSlice.actions;
+export default recipeListSlice.reducer;

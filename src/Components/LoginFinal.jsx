@@ -1,117 +1,147 @@
 import * as React from 'react';
-import { useColorScheme } from '@mui/joy/styles';
-import Sheet from '@mui/joy/Sheet';
-import CssBaseline from '@mui/joy/CssBaseline';
-import Typography from '@mui/joy/Typography';
-import FormControl from '@mui/joy/FormControl';
-import FormLabel from '@mui/joy/FormLabel';
-import Input from '@mui/joy/Input';
-import Button from '@mui/joy/Button';
-import Link from '@mui/joy/Link';
-import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
-import {createUser} from '../Store/UserSlice'
 import { useState } from 'react';
-import RecipeList from './RecipeList';
-import { useSelector,useDispatch } from "react-redux"
-function ModeToggle() {
-  const { mode, setMode } = useColorScheme();
-  const [mounted, setMounted] = useState(false);
-
-  // necessary for server-side rendering
-  // because mode is undefined on the server
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-  if (!mounted) {
-    return <Button variant="soft">Change mode</Button>;
-  }
-
-  return (
-    <Select
-      variant="soft"
-      value={mode}
-      onChange={(event, newMode) => {
-        setMode(newMode);
-      }}
-      sx={{ width: 'max-content' }}
-    >
-      <Option value="system">System</Option>
-      <Option value="light">Light</Option>
-      <Option value="dark">Dark</Option>
-    </Select>
-  );
-}
-
+import { useSelector, useDispatch } from 'react-redux';
+import { createUser } from '../Store/UserSlice';
+import ResponsiveAppBar from './ResponsiveAppBar';
+import { useNavigate } from 'react-router-dom';
+import {
+  CssVarsProvider,
+  CssBaseline,
+  Sheet,
+  Typography,
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Link,
+} from '@mui/joy';
+import '../LoginFinal.css';
 export default function LoginFinal() {
-  /////////////////////////////i did it!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  const dispatch=useDispatch()
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const userObj = useSelector(x=>x.UserSlice)
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const userObj = useSelector((x) => x.UserSlice);
+  const navigate = useNavigate();
   const handleLogin = () => {
-    console.log("כפתור נלחץ!");
-    dispatch(createUser({email,password}))
+    dispatch(createUser({ email, password,name }));
     console.log(userObj.password);
-    <RecipeList/>//!!!!!!!!!!!!!!
-  }
-  ///////////////////////////////////i did it!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    console.log(userObj.email);
+    navigate('/profile');
+  };
+  React.useEffect(() => {
+    console.log('Email:', userObj.email);
+    console.log('Password:', userObj.password);
+  }, [userObj]);
   return (
-    <main>
-      <ModeToggle />
-      <CssBaseline />
-      <Sheet
-        sx={{
-          width: 300,
-          mx: 'auto', // margin left & right
-          my: 4, // margin top & bottom
-          py: 3, // padding top & bottom
-          px: 2, // padding left & right
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 2,
-          borderRadius: 'sm',
-          boxShadow: 'md',
-        }}
-        variant="outlined"
-      >
-        <div>
-          <Typography level="h4" component="h1">
-            <b>Welcome!</b>
-          </Typography>
-          <Typography level="body-sm">Sign in to continue.</Typography>
+    <>
+      <ResponsiveAppBar />
+      <CssVarsProvider>
+        <CssBaseline />
+        <div className="login-container">
+          <Sheet
+            sx={{
+              padding: '20px',
+              maxWidth: '400px',
+              margin: 'auto',
+              backgroundColor: '#fff',
+              borderRadius: '10px',
+              boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <Typography
+              component="h1"
+              level="h4"
+              sx={{ marginBottom: '20px', color: '#f06292', fontWeight: 'bold' }}
+            >
+              ברוך הבא!
+            </Typography>
+            <Typography
+              component="p"
+              level="body2"
+              sx={{ marginBottom: '20px', color: '#555' }}
+            >
+              אנא היכנס כדי להמשיך.
+            </Typography>
+            <form className="login-form">
+            <FormControl>
+                <FormLabel>שם</FormLabel>
+                <Input
+                  name="name"
+                  type="text"
+                  placeholder=""
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  sx={{
+                    borderColor: '#ccc',
+                    '&:hover': { borderColor: '#f06292' },
+                    '&:focus': { borderColor: '#d81b60' },
+                  }}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>מייל</FormLabel>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="example@email.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  sx={{
+                    borderColor: '#ccc',
+                    '&:hover': { borderColor: '#f06292' },
+                    '&:focus': { borderColor: '#d81b60' },
+                  }}
+                />
+              </FormControl>
+              <FormControl>
+                <FormLabel>סיסמא</FormLabel>
+                <Input
+                  name="password"
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  sx={{
+                    borderColor: '#ccc',
+                    '&:hover': { borderColor: '#f06292' },
+                    '&:focus': { borderColor: '#d81b60' },
+                  }}
+                />
+              </FormControl>
+              <Button
+                variant="solid"
+                sx={{
+                  marginTop: '15px',
+                  backgroundColor: '#f06292',
+                  color: '#fff',
+                  '&:hover': { backgroundColor: '#d81b60' },
+                }}
+                onClick={handleLogin}
+              >
+                התחבר
+              </Button>
+            </form>
+            <Typography
+              sx={{
+                marginTop: '20px',
+                fontSize: '14px',
+                color: '#777',
+              }}
+            >
+              אין לך חשבון?{' '}
+              <Link href="/Login" sx={{ color: '#f06292', textDecoration: 'none' }}>
+                הירשם כאן
+              </Link>
+            </Typography>
+          </Sheet>
         </div>
-        <FormControl>
-          <FormLabel>Email</FormLabel>
-          <Input
-            // email input
-            name="email"
-            type="email"
-            placeholder="johndoe@email.com"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)} //update email to be the user's email
-          />
-        </FormControl>
-        <FormControl>
-          <FormLabel>Password</FormLabel>
-          <Input
-            // password input
-            name="password"
-            type="password"
-            placeholder="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)} //update password to be the user's password
-          />
-          
-        </FormControl>
-        <Button sx={{ mt: 1 /* margin top */ }} onClick={handleLogin}>Log in</Button> 
-        <Typography
-          endDecorator={<Link href="/Login">Sign up</Link>}//on click 'sign up' go back to login
-          sx={{ fontSize: 'sm', alignSelf: 'center' }}
-        >
-          Don&apos;t have an account?
-        </Typography>
-      </Sheet>
-    </main>
+        <footer className="footer">
+          <p>
+            © 2024 אתר המתכונים | <Link to="/about">אודות</Link> | <Link to="/contact">צור קשר</Link>
+          </p>
+        </footer>
+      </CssVarsProvider>
+    </>
   );
 }
