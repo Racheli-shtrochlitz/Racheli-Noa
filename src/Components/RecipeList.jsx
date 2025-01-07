@@ -7,10 +7,11 @@ import RentalCard from './RentalCard';
 import { useSelector, useDispatch } from "react-redux"
 import ResponsiveAppBar from './ResponsiveAppBar';
 import { Grid } from '@mui/joy';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AddRecipeAlert from './AddRecipeAlert';
 import '../Home.css';
 import '../RecipeList.css';
+
 export default function RentalDashboard() {
     const dispatch = useDispatch();
     const arrObj = useSelector(x => x.RecipeListSlice);
@@ -20,7 +21,7 @@ export default function RentalDashboard() {
             <ResponsiveAppBar />
             <CssVarsProvider disableTransitionOnChange>
                 <CssBaseline />
-                <Box className="rental-dashboard-container">
+                <Box className="rental-dashboard-container" sx={{paddingTop: '80px',}}>
                     <Stack className="stack">
                     </Stack>
                     <Box className="background-image-box" />
@@ -28,19 +29,27 @@ export default function RentalDashboard() {
                         <Grid container spacing={2}>
                             {arrObj.arr.map((element) => (
                                 <Grid item xs={12} sm={6} md={4} lg={3} key={element.id} className="recipe-grid-item">
-                                        <RentalCard
-                                            index={element.id} // מזהה המתכון
-                                            title={element.name} // שם המתכון
-                                            category={element.category} // קטגוריית המתכון
-                                            time={element.time} // זמן הכנה
-                                            products={element.products} // רכיבים
-                                            instructions={element.instructions} // הוראות הכנה
-                                            image={element.image && element.image.startsWith("data:image") // אם התמונה ב-Base64
-                                                ? element.image // הצג את ה-Base64 כפי שהוא
-                                                : element.image ? require(`../img/${element.image}.jpg`) : '' // אחרת הצג את התמונה מהתיקייה אם יש, אחרת הצג כלום
-                                            }
-                                            className="recipe-card"
-                                        />
+                                    <RentalCard
+                                        index={element.id}
+                                        title={<div className="title">{element.name}</div>}
+                                        category={
+                                            <div className="details">
+                                                🍴 קטגוריה: {element.category} <br />
+                                                ⏱ זמן הכנה: {element.time}
+                                            </div>
+                                        }
+                                        time={null}
+                                        products={element.products}
+                                        instructions={element.instructions}
+                                        image={
+                                            element.image && element.image.startsWith("data:image")
+                                                ? element.image
+                                                : element.image
+                                                    ? require(`../img/${element.image}.jpg`)
+                                                    : ''
+                                        }
+                                        className="recipe-card"
+                                    />
                                 </Grid>
                             ))}
                         </Grid>

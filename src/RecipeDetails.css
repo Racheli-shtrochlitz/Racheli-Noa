@@ -1,99 +1,117 @@
-/* עיצוב כללי */
+/* עיצוב בסיסי */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f7f7f7;
+    background-color: #fdf1f8;
+    /* צבע ורוד בהיר כרקע */
     color: #333;
 }
 
 /* כותרת עמוד */
-h1 {
-    font-family: 'Impact', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 36px;
+h1, h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
     color: #D85DFF;
-    /* צבע ורוד כהה */
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 
-/* עיצוב עבור עמוד המתכון */
+/* מיכל מתכון */
+.recipe-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
 .recipe {
     background-color: #fff;
-    font-family: 'Arial', sans-serif;
-    font-size: 18px;
     padding: 30px;
-    margin: 20px auto;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
     max-width: 900px;
+    width: 100%;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     text-align: right;
-    line-height: 1.6;
     border: 2px solid #FFCCE5;
-    /* גבול ורוד בהיר */
 }
 
-/* תמונה של המתכון */
-.recipe img {
+/* תמונה של מתכון */
+.recipe-image img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* כותרת המתכון */
-.recipe h1 {
-    font-size: 2.8em;
+/* פרטי מתכון */
+.recipe-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.recipe-details p {
+    font-size: 18px;
+    color: #555;
+    margin: 0;
+    padding: 5px 10px;
+    background-color: #FFF1F6;
+    border-radius: 8px;
+    border: 1px solid #FFCCE5;
+}
+
+.recipe-details .time {
+    color: #FF66B2;
+}
+
+.recipe-details .category {
+    color: #FF66B2;
+}
+
+/* רכיבים והוראות */
+.recipe-ingredients, .recipe-instructions {
+    margin-top: 20px;
+}
+
+.recipe-ingredients h2, .recipe-instructions h2 {
+    font-size: 22px;
     color: #D85DFF;
-    /* צבע ורוד כהה */
+    border-bottom: 2px solid #FFCCE5;
+    padding-bottom: 5px;
     margin-bottom: 15px;
 }
 
-/* זמן הכנה וקטגוריה */
-.recipe p.time,
-.recipe p.category {
-    font-weight: bold;
-    color: #FF66B2;
-    /* ורוד חזק */
+.recipe-ingredients ul, .recipe-instructions ul {
+    list-style-type: square;
+    padding-left: 20px;
+    color: #333;
+    font-size: 16px;
+}
+
+.recipe-ingredients li, .recipe-instructions li {
     margin-bottom: 10px;
 }
 
-/* רשימת רכיבים */
-.recipe ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 30px;
-    color: #555;
-}
-
-.recipe ul li {
-    font-size: 18px;
-    margin: 8px 0;
-}
-
-/* הוראות הכנה */
-.recipe .instructions {
-    background-color: #FFF1F6;
-    /* צבע רקע ורוד בהיר */
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-/* רספונסיביות למובייל */
+/* רספונסיביות */
 @media (max-width: 768px) {
     .recipe {
-        width: 90%;
+        padding: 20px;
     }
 
-    h1 {
-        font-size: 2.2em;
+    .recipe-details {
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    .recipe p,
-    .recipe ul li {
+    .recipe-details p {
+        width: 100%;
+        text-align: center;
+    }
+
+    .recipe-details .time, .recipe-details .category {
         font-size: 16px;
     }
 }

@@ -1,111 +1,89 @@
-/* סטיילים עבור RentalDashboard */
-.rental-dashboard-container {
-    /* כללים עבור ה-Box הראשי */
-}
-
-.stack {
-    background-color: var(--joy-background-surface);
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid;
-    border-color: var(--joy-divider);
-}
-
-.background-image-box {
-    grid-row: span 3;
-    display: none;
-    background-color: var(--joy-background-level1);
-    background-size: cover;
-    background-image: url("https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3731&q=80");
-}
-
-/* כאשר המסך גדול מ-md, ה-background-image-box יופיע */
-@media (min-width: 960px) {
-    .background-image-box {
-        display: flex;
-    }
-}
-
-.content-stack {
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 16px;
-    min-height: 0;
-}
-
-.recipe-link {
-    text-decoration: none;
-}
-
-/* עיצוב עבור ריבוע המתכון */
-.rental-card {
-    height: 250px; /* הגובה של כל ריבוע */
+.recipe-card {
+    position: relative;
+    border: 1px solid #f3d6e8;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+}
+
+.image-container {
     position: relative;
+    width: 100%;
+    padding-top: 60%; /* Aspect ratio 16:9 */
+    overflow: hidden;
 }
 
-/* עיצוב לאייקון הלב */
-.favorite-icon {
+.recipe-image {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    cursor: pointer;
-    color: #f44336; /* צבע אדום */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* עיצוב לכוכבים */
-.stars {
+.favorite-icon-container {
     position: absolute;
     top: 10px;
     left: 10px;
-    font-size: 18px;
-    color: gold;
+    z-index: 2;
 }
 
-/* עיצוב לזמן ההכנה */
-.time {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 16px;
-    color: #333;
+.favorite-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
-/* עיצוב ה-Grid */
-.recipe-grid-item {
-    justify-content: center; 
-    padding: 5px;
+.favorite-icon:hover {
+    transform: scale(1.1);
 }
 
-.recipe-link {
-    text-decoration: none;
-    color: inherit;
+.details {
+    text-align: center;
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
-/* עיצוב ה-RentalCard */
-.recipe-card {
-    border: 1px solid #ddd; /* גבול רך */
-    border-radius: 8px; /* פינות מעוגלות */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* צל עדין */
-    overflow: hidden; /* חותך אלמנטים יוצאים */
-    background-color: white; /* צבע רקע לבן */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* אנימציה */
+.recipe-title {
+    margin: 0 0 12px 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: right;
 }
 
-.recipe-card:hover {
-    transform: translateY(-5px); /* הרמה קלה של הריבוע כשלוחצים עליו */
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2); /* צל חזק יותר בהנחת עכבר */
+.recipe-meta {
+    margin-top: auto;
+    text-align: right;
 }
 
-/* עיצוב התמונה בתוך ה-RentalCard */
-.recipe-card img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* מכסה את התמונה בגבולות הריבוע */
+.recipe-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .favorite-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .recipe-title {
+        font-size: 1.1rem;
+    }
+}
+  

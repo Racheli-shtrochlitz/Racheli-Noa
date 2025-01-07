@@ -26,7 +26,7 @@ const Home = () => {
     return (
         <div className="container">
             <header>
-                <ResponsiveAppBar sx={{ zIndex: 10 }} />
+                <ResponsiveAppBar sx={{ zIndex: 10000 }} />
             </header>
             <main style={{ marginTop: '80px', paddingBottom: '60px', zIndex: 1 }}>
                 <h1 className="welcome-title">ברוכים הבאים לאתר המתכונים שלנו!</h1>

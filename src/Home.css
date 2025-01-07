@@ -29,12 +29,12 @@ html {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    /* padding-bottom: 60px; */
+    z-index:1;
 }
 
 
 header {
-    z-index: 10;
+    z-index: 10000;
     position: fixed;
     top: 0;
     left: 0;
@@ -46,6 +46,7 @@ main {
     z-index: 1;
     margin-top: 80px; /* גובה ה-header */
     padding-bottom: 60px; /* גובה ה-footer */
+    z-index:1;
 }
 
 .container:before {
@@ -308,6 +309,7 @@ html {
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
+    z-index:1;
 }
 
 .container:before {
@@ -537,4 +539,8 @@ html {
     .search-box-container {
         gap: 5px;
     }
+    .rental-dashboard-container {
+        padding-top: 80px; /* או יותר אם הנבבר גבוה */
+    }
+    
 }

@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Suspense fallback={'loading...'}><LazyHome /></Suspense>} />
         <Route path='/Login' element={<Suspense fallback={'loading...'}><LazyLogin /></Suspense>} />
-        <Route path='/RecipeDetails/:id' element={<Suspense fallback={'loading...'}><LazyRecipeDetails /></Suspense>} />
+        <Route path='RecipeDetails/:id' element={<Suspense fallback={'loading...'}><LazyRecipeDetails /></Suspense>} />
         <Route path='/RecipeList' element={<Suspense fallback={'loading...'}><LazyRecipeList /></Suspense>} />
         <Route path='/appbar' element={<Suspense fallback={'loading...'}><ResponsiveAppBar /></Suspense>} />
         <Route path='/about' element={<Suspense fallback={'loading...'}><LazyAbout /></Suspense>} />

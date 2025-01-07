@@ -42,10 +42,11 @@ export default function RentalCard(props: RentalCardProps) {
 
   return (
     <Card
-      variant="outlined"
+      variant="soft"
       orientation="horizontal"
       sx={{
-        // bgcolor: 'neutral.softBg',
+        padding: 2, marginBottom: 2,
+        bgcolor: 'background.body',
         display: 'flex',
         flexDirection: 'column',
         '&:hover': {
@@ -53,11 +54,18 @@ export default function RentalCard(props: RentalCardProps) {
           borderColor: 'var(--joy-palette-neutral-outlinedDisabledBorder)',
         },
         position: 'relative', 
+        boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
+        borderRadius: '12px',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+        '&:hover': {
+          transform: 'scale(1.03)',
+          boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.15)',
+        },
       }}
     >
       <RouterLink to={`/RecipeDetails/${index}`} sx={{ display: 'block' }}>
         <CardOverflow sx={{ mb: 2 }}>
-          <AspectRatio ratio="5/6" flex sx={{ minWidth: '100%', position: 'relative' }}>
+          <AspectRatio ratio="1" flex sx={{ minWidth: '100%', position: 'relative' }}>
             <img
               alt=""
               src={image ? image : ''}
@@ -95,8 +103,10 @@ export default function RentalCard(props: RentalCardProps) {
         color={isLiked ? 'danger' : 'neutral'}
         onClick={(e) => {
           e.stopPropagation(); // מונע מהלחיצה על הלב להפעיל את הלינק
-          setIsLiked((prev) => !prev); // משנה את מצב הלייק
-          dispatch(ChangeLike({ isLiked, index })); // שולח פעולה
+          const newLikedStatus = !isLiked; // מחשבים את מצב הלייק החדש
+    setIsLiked(newLikedStatus); // משנה את מצב הלייק
+    dispatch(ChangeLike({ isLiked: newLikedStatus, index }));
+ // שולח פעולה
         }}
         sx={{
           position: 'absolute',

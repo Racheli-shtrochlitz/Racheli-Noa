@@ -17,58 +17,56 @@ export default function RecipeDetails() {
     products: [],
     instructions: [],
   };
-  
-  const element = Object.assign({}, defaultElement, arrObj.arr.find((recipe) => recipe.id === parseInt(id)) || {});
-  
-  let imageSrc = element.image
-  ? element.image.startsWith("data:image") // אם התמונה ב-Base64
-    ? element.image // הצג את ה-Base64 כפי שהוא
-    : (() => {
-        try {
-          return require(`../img/${element.image}.jpg`); // נסה לטעון מתוך התיקייה
-        } catch (error) {
-          return ''; // אם לא נמצא קובץ, החזר ריק
-        }
-      })()
-  : ''; // ברירת מחדל אם אין תמונה
 
+  const element = Object.assign({}, defaultElement, arrObj.arr.find((recipe) => recipe.id === parseInt(id)) || {});
+
+  let imageSrc = element.image
+    ? element.image.startsWith("data:image")
+      ? element.image
+      : (() => {
+          try {
+            return require(`../img/${element.image}.jpg`);
+          } catch (error) {
+            return '';
+          }
+        })()
+    : '';
 
   return (
     <>
       <ResponsiveAppBar />
-
-      <div className="recipe">
-        <h1>{element.name}</h1>
-
-        {/* הצגת התמונה */}
-        <div>
-          {imageSrc ? (
-            <img src={imageSrc} alt={element.name} />
-          ) : (
-            <p>תמונה לא זמינה</p>
-          )}
-        </div>
-
-        <p className="time">זמן הכנה: {element.time}</p>
-        <p className="category">קטגוריה: {element.category}</p>
-
-        <p><strong>רכיבים:</strong></p>
-        <ul>
-          {element.products.map((products, index) => (
-            <li key={index}>{products}</li>
-          ))}
-        </ul>
-
-        <p><strong>הוראות הכנה:</strong></p>
-        <div className="instructions">
-          <ul>
-            {element.instructions.map((instructions, index) => (
-              <li key={index}>{instructions}</li>
-            ))}
-          </ul>
+      <div className="recipe-container">
+        <div className="recipe">
+          <h1>{element.name}</h1>
+          <div className="recipe-image">
+            {imageSrc ? (
+              <img src={imageSrc} alt={element.name} />
+            ) : (
+              <p>תמונה לא זמינה</p>
+            )}
+          </div>
+          <div className="recipe-details">
+            <p className="time">⏱ זמן הכנה: {element.time}</p>
+            <p className="category">🍴 קטגוריה: {element.category}</p>
+          </div>
+          <div className="recipe-ingredients">
+            <h2>רכיבים</h2>
+            <ul>
+              {element.products.map((product, index) => (
+                <li key={index}>{product}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="recipe-instructions">
+            <h2>הוראות הכנה</h2>
+            <ul>
+              {element.instructions.map((instruction, index) => (
+                <li key={index}>{instruction}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-
       <footer className="footer">
         <p>
           © 2024 אתר המתכונים | <Link to="/">דף הבית</Link> | <Link to="/contact">צור קשר</Link>
