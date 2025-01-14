@@ -1,202 +1,200 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { useSelector } from 'react-redux';
-import Favorite from './Favorite';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+  Box,
+  Button,
+  Avatar,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import logo from '../img/logo.png';
+import { useSelector } from "react-redux";
+import Favorite from "./Favorite";
+const pages = [
+  { label: "דף הבית", link: "/" },
+  { label: "מתכונים", link: "/RecipeList" },
+  { label: "התחברות", link: "/Login" },
+];
 
-const pages = ['דף הבית', 'מתכונים', 'התחברות'];
-const settings = ['הפרופיל שלי', 'חשבון', 'התנתק'];
-const pageLinks = ['/', '/RecipeList', '/Login'];
-const settingsLinks = ['/profile', '/account', '/logout'];
-function ResponsiveAppBar() {
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const userObj = useSelector(x => x.UserSlice);
-    const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
+const settings = [
+  { label: "הפרופיל שלי", link: "/profile" },
+  { label: "חשבון", link: "/account" },
+  { label: "התנתק", link: "/logout" },
+];
 
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
+const ResponsiveAppBar = () => {
+  const userObj = useSelector(x => x.UserSlice);
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-    const getInitial = (name) => {
-        if (!name) return '?';
-        return name.trim()[0].toUpperCase();
-    };
-    return (
-        <AppBar position="fixed" sx={{ backgroundColor: 'rgba(247, 152, 220, 0.9)', zIndex: 1000 }}>
-            <Container maxWidth="xl">
-                <Toolbar disableGutters>
-                    <Link to="/" style={{ textDecoration: 'none' }}>
-                        <Typography
-                            variant="h4"
-                            noWrap
-                            sx={{
-                                fontFamily: 'Cursive, Arial, sans-serif',
-                                fontWeight: 'bold',
-                                fontSize: '36px',
-                                background: 'linear-gradient(90deg, #FF4081, #F06292, #F8BBD0)',
-                                WebkitBackgroundClip: 'text',
-                                WebkitTextFillColor: 'transparent',
-                                ml: 2,
-                                mr: 'auto',
-                                textDecoration: 'none',
-                                textShadow: '2px 2px 5px rgba(0, 0, 0, 0.3)',
-                                display: 'flex',
-                                justifyContent: 'flex-start',
-                                ':hover': {
-                                    textShadow: '4px 4px 8px rgba(0, 0, 0, 0.5)',
-                                },
-                            }}
-                        >
-                            טעימל'ה 💕
-                        </Typography>
-                    </Link>
-                    {/* תפריט בגרסה קטנה (mobile) */}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-                        <IconButton
-                            size="large"
-                            aria-label="menu"
-                            aria-controls="menu-appbar"
-                            aria-haspopup="true"
-                            onClick={handleOpenNavMenu}
-                            color="inherit"
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Menu
-                            id="menu-appbar"
-                            anchorEl={anchorElNav}
-                            anchorOrigin={{
-                                vertical: 'bottom',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElNav)}
-                            onClose={handleCloseNavMenu}
-                            sx={{ display: { xs: 'block', md: 'none' } }}
-                        >
-                            {pages.map((page, index) => (
-                                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Link to={pageLinks[index]} style={{ textDecoration: 'none' }}>
-                                        <Typography
-                                            sx={{
-                                                textAlign: 'center',
-                                                fontSize: '18px',
-                                                fontFamily: 'Arial, sans-serif',
-                                            }}
-                                        >
-                                            {page}
-                                        </Typography>
-                                    </Link>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                    {/* תפריט בגרסה גדולה (desktop) */}
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
-                        {pages.map((page, index) => (
-                            <Link to={pageLinks[index]} key={page} style={{ textDecoration: 'none' }}>
-                                <Button
-                                    sx={{
-                                        my: 2,
-                                        mx: 1.5,
-                                        fontSize: '18px',
-                                        textTransform: 'none',
-                                        fontFamily: 'Arial, sans-serif',
-                                        color: 'white',
-                                        background: 'linear-gradient(90deg, #F06292, #F8BBD0)',
-                                        borderRadius: '20px',
-                                        px: 2,
-                                        py: 1,
-                                        ':hover': {
-                                            background: 'linear-gradient(90deg, #F8BBD0, #F06292)',
-                                            boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)',
-                                        },
-                                    }}
-                                >
-                                    {page}
-                                </Button>
-                            </Link>
-                        ))}
-                    </Box>
-                    {/* תפריט הגדרות */}
-                    <Box sx={{ flexGrow: 0, display: 'flex', alignItems: 'center', gap: 2 }}>
-                        <Favorite />
-                        <Tooltip title="הגדרות משתמש">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="User"
-                                    sx={{
-                                        backgroundColor: 'rgba(247, 195, 232, 0.9)', // צבע הרקע
-                                        color: '#FFF', // צבע הטקסט
-                                        width: 40, // גודל
-                                        height: 40, // גודל
-                                        border: '2px solid #FFFFFF', // הוספת מסגרת לבנה
-                                    }}
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-                                > {getInitial(userObj.name)}</Avatar>
-                            </IconButton>
-                        </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting, index) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Link to={settingsLinks[index]} style={{ textDecoration: 'none', color: 'inherit' }}>
-                                        <Typography
-                                            sx={{
-                                                textAlign: 'center',
-                                                fontSize: '16px',
-                                                fontFamily: 'Arial, sans-serif',
-                                            }}
-                                        >
-                                            {setting}
-                                        </Typography>
-                                    </Link>
-                                </MenuItem>
-                            ))}
-                        </Menu>
-                    </Box>
-                </Toolbar>
-            </Container>
-        </AppBar>
-    );
-}
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const getInitial = (name) => {
+    if (!name) return '?';
+    return name.trim()[0].toUpperCase();
+  };
+  return (
+    <AppBar
+      position="sticky"
+      sx={{
+        backgroundColor: "#ffffff", // לבן
+        color: "#388e3c", // ירוק כהה
+        boxShadow: "none", // ללא הצללה
+        borderBottom: "1px solid #c5e1a5", // קו תחתון ירוק בהיר
+        position: "fixed",
+      }}
+    >
+      <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+        {/* לוגו */}
+        <Typography
+          variant="h6"
+          sx={{
+            fontWeight: "bold",
+            fontSize: "24px",
+            fontFamily: "Arial, sans-serif",
+            color: "#388e3c", // ירוק כהה
+          }}
+        >
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            <img
+              src={logo} // הכנס את הנתיב של התמונה שלך כאן
+
+              style={{
+                height: "80px", // אתה יכול לשנות את הגובה של התמונה בהתאם לעיצוב שלך
+                width: "auto", // רוחב מותאם באופן אוטומטי לפי הגובה
+              }}
+            />
+          </Link>
+        </Typography>
+
+        {/* תפריט למכשירים גדולים */}
+        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
+          {pages.map((page) => (
+            <Link
+              key={page.label}
+              to={page.link}
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <Button
+                sx={{
+                  color: "#388e3c", // ירוק כהה
+                  fontSize: "16px",
+                  fontWeight: "500",
+                  ":hover": {
+                    color: "#1b5e20", // ירוק כהה יותר
+                    backgroundColor: "#ffffff", // רקע ירוק בהיר
+                  },
+                  borderBottom: "2px solid transparent", // פס מתחת לכפתור
+                  ":hover": {
+                    borderBottom: "2px solid #388e3c", // פס ירוק כהה בעת מעבר על הכפתור
+                  },
+                  borderRadius: 0,
+
+                }}
+              >
+                {page.label}
+              </Button>
+            </Link>
+          ))}
+        </Box>
+
+        {/* תפריט למכשירים קטנים */}
+        <Box sx={{ display: { xs: "flex", md: "none" } }}>
+          <IconButton
+            size="large"
+            onClick={handleOpenNavMenu}
+            sx={{ color: "#388e3c" }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            anchorEl={anchorElNav}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+          >
+            {pages.map((page) => (
+              <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                <Link
+                  to={page.link}
+                  style={{
+                    textDecoration: "none",
+                    color: "#388e3c",
+                    fontSize: "16px",
+                  }}
+                >
+                  {page.label}
+                </Link>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+
+        {/* תפריט משתמש */}
+        <Box sx={{
+          display: 'flex',
+          alignItems: 'center', // יישור אנכי של הפריטים
+          justifyContent: 'flex-end', // יישור לצד ימין
+          gap: 1.5, // רווח בין האייקונים
+        }}>
+          <Favorite />
+          <IconButton onClick={handleOpenUserMenu}>
+            <Avatar alt="User"
+              sx={{
+                backgroundColor: '#E6E1F4', // צבע הרקע
+                color: '#FFF', // צבע הטקסט
+                width: 40, // גודל
+                height: 40, // גודל
+                border: '2px solid #FFFFFF', // הוספת מסגרת לבנה
+              }}
+
+            > {getInitial(userObj.name)}
+            </Avatar>
+          </IconButton>
+          <Menu
+            anchorEl={anchorElUser}
+            open={Boolean(anchorElUser)}
+            onClose={handleCloseUserMenu}
+          >
+            {settings.map((setting) => (
+              <MenuItem key={setting.label} onClick={handleCloseUserMenu}>
+                <Link
+                  to={setting.link}
+                  style={{
+                    textDecoration: "none",
+                    color: "#388e3c",
+                    fontSize: "16px",
+                  }}
+                >
+                  {setting.label}
+                </Link>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
 export default ResponsiveAppBar;

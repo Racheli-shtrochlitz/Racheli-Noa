@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialValue = {
-    name: "אורח",
+    name: "?",
     email: "example@example.com",
     password: "123456"
 }

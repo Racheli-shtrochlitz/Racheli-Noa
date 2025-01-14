@@ -1,27 +1,25 @@
 import * as React from 'react';
-import { CssVarsProvider, ThemeProvider, extendTheme } from '@mui/joy/styles';
+import { CssVarsProvider } from '@mui/joy/styles';
 import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
 import Stack from '@mui/joy/Stack';
 import RentalCard from './RentalCard';
-import { useSelector, useDispatch } from "react-redux"
-import ResponsiveAppBar from './ResponsiveAppBar';
+import { useSelector, useDispatch, Provider } from "react-redux"
+ import ResponsiveAppBar from './ResponsiveAppBar';
 import { Grid } from '@mui/joy';
 import { Link, useNavigate } from 'react-router-dom';
-import AddRecipeAlert from './AddRecipeAlert';
-import '../Home.css';
 import '../RecipeList.css';
-
+import AddRecipeAlert from './AddRecipeAlert'
 export default function RentalDashboard() {
     const dispatch = useDispatch();
     const arrObj = useSelector(x => x.RecipeListSlice);
     return (
         <>
-            <AddRecipeAlert />
+           <AddRecipeAlert />
             <ResponsiveAppBar />
             <CssVarsProvider disableTransitionOnChange>
                 <CssBaseline />
-                <Box className="rental-dashboard-container" sx={{paddingTop: '80px',}}>
+                <Box className="rental-dashboard-container" sx={{ paddingTop: '80px', }}>
                     <Stack className="stack">
                     </Stack>
                     <Box className="background-image-box" />

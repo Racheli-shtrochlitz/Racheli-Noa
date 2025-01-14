@@ -28,25 +28,20 @@ const Favorite = () => {
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
-    const getInitial = () => {
-        return '❤️';
-    };
     return (
         <>
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="מועדפים">
-                    <FavoriteIcon onClick={handleOpenUserMenu} sx={{ p: 0, width: 40, height: 40, marginTop: '7px', }}>
-                        <Avatar alt="Favorites"
-                            sx={{
-                                backgroundColor: 'rgba(247, 195, 232, 0.9)', // צבע הרקע
-                                color: '#FFF', // צבע הטקסט
-                                width: 40, // גודל
-                                height: 40, // גודל
-                                border: '2px solid #FFFFFF', // הוספת מסגרת לבנה
-                            }}
+                <FavoriteIcon
+  onClick={handleOpenUserMenu}
+  sx={{
+    color: 'secondary.main', // צבע הלב
+    fontSize: 40, // גודל הלב
+    WebkitTextStroke: '2px secondary.main', // מסגרת סביב הלב
+    WebkitTextFillColor: 'white', // צבע המילוי
+  }}
+/>
 
-                        > {getInitial()}</Avatar>
-                    </FavoriteIcon>
                 </Tooltip>
                 <Menu
                     sx={{ mt: '45px' }}
