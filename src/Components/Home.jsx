@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import { Grid } from '@mui/joy';
 import { useEffect } from 'react';
+import { Toolbar } from '@mui/material';
 
 const Home = () => {
     const arrObj = useSelector(x => x.RecipeListSlice);
@@ -46,6 +47,7 @@ const Home = () => {
                 <Grid>
                     <header>
                         <ResponsiveAppBar sx={{ zIndex: 10000 }} />
+                        {/* <Toolbar /> */}
                     </header>
                 </Grid>
                 <Grid>

@@ -21,7 +21,7 @@ export default function AddRecipeAlert() {
   const arrObj = useSelector(x => x.RecipeListSlice);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [preview, setPreview] = useState(null);
-  const { register, handleSubmit,setValue, formState: { errors } } = useForm({
+  const { register, handleSubmit, setValue, formState: { errors } } = useForm({
     resolver: yupResolver(SignupSchema),
   });
   const onSubmit = (data) => {
@@ -67,18 +67,47 @@ export default function AddRecipeAlert() {
   return (
     <>
       <Button
+        variant="contained"
+        color="primary"
+        onClick={toggleDrawer(true)}
+        style={{
+          position: "fixed",
+          top: "100px", // הכפתור ממוקם למעלה של המסך
+          left: "-80px", // יוצא החוצה מהמסך בצד שמאל
+          zIndex: 1000,
+          borderRadius: "30px",  // רדיוס קצוות כדי ליצור צורת אליפסה
+          width: "200px", // רוחב אליפסה
+          height: "60px", // גובה אליפסה
+          padding: 23,
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+          display: "flex",
+          justifyContent: "right",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          variant="h6"
+          style={{
+            fontSize: "18px",  // גודל הטקסט
+          }}
+        >
+          הוספת מתכון
+        </Typography>
+      </Button>
+
+      {/* <Button
         variant="contained" // כפתור להוספת מתכון
         color="primary"
         onClick={toggleDrawer(true)}
         style={{
           position: "fixed",
-          bottom: "90px",
-          right: "20px",
+          bottom: "10px",
+          left: "20px",
           zIndex: 1000,
         }}
       >
         הוסף מתכון
-      </Button>
+      </Button> */}
 
       <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)}>
         <Box p={2} width={300} role="presentation" textAlign="center">

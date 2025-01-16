@@ -1,39 +1,89 @@
 body {
   margin: 0;
-  padding: 0;
   font-family: 'Arial', sans-serif;
-  background: linear-gradient(to bottom, #ffe4e1, #f8bbd0);
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
+  min-height: 100vh;
 }
 
 .login-container {
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  width: 100%; /* לוודא שהרוחב מתפשט */
-  max-width: 400px;
-  text-align: center;
-  z-index: 10; /* לוודא שהמיכל לא ייפול מתחת לאלמנטים אחרים */
-  box-sizing: border-box; /* חשוב שהמיכל יכלול גם את ה-padding */
-}
-
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  margin: auto;
+}
+
+.login-sheet {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.login-title {
+  font-size: 1.8em;
+  color: #d81b60;
+  margin-bottom: 10px;
+}
+
+.login-subtitle {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.8em;
+}
+
+.password-rules {
+  margin-top: 10px;
+}
+
+.rule-error {
+  color: red;
+}
+
+.rule-success {
+  color: green;
+}
+
+.submit-button {
+  margin-top: 20px;
+  background-color: #d81b60;
   color: white;
-  padding: 10px 0;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+.submit-button:hover {
+  background-color: #ad1457;
+}
+
+/* פוטר */
+.footer {
+  width: 100vw;
+  bottom: 0px;
+  text-align: center;
+  padding: 15px;
+  background-color: #4a154b;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.footer a {
+  color: #4caf50;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+.footer a:hover {
+  color: #81c784;
 }

@@ -2,12 +2,14 @@ import React from 'react';
 import '../Contact.css';
 import { Link } from 'react-router-dom';
 import ResponsiveAppBar from './ResponsiveAppBar';
+import { Toolbar } from '@mui/material';
 
 const Contact = () => {
     return (
         <>
             <div className="contact-container">
                 <ResponsiveAppBar />
+                <Toolbar />
                 <h1 className="contact-title">צור קשר</h1>
                 <p className="contact-description">נשמח לשמוע ממך! אנא מלא את הפרטים בטופס ונחזור אליך בהקדם.</p>
                 <form className="contact-form">

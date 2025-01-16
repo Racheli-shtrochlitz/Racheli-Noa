@@ -1,12 +1,15 @@
 import React from 'react';
-import '../Home.css'; // Assuming you want consistent styling with Home
+import '../Home.css';
+import '../About.css';
 import { Link } from 'react-router-dom';
 import ResponsiveAppBar from './ResponsiveAppBar';
+import { Toolbar } from '@mui/material';
 
 const About = () => {
     return (
         <>
             <ResponsiveAppBar />
+            <Toolbar />
             <div className="container">
                 <header>
                     <h1 className="welcome-title">אודות האתר</h1>

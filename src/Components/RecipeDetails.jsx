@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import '../Home.css';
 import '../RecipeDetails.css';
+import { Toolbar } from '@mui/material';
+
 export default function RecipeDetails() {
   const { id } = useParams();
   const arrObj = useSelector((state) => state.RecipeListSlice);
@@ -35,6 +37,7 @@ export default function RecipeDetails() {
   return (
     <>
       <ResponsiveAppBar />
+      <Toolbar />
       <div className="recipe-container">
         <div className="recipe">
           <h1>{element.name}</h1>

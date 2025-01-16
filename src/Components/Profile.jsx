@@ -5,6 +5,8 @@ import '../Home.css';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import { useSelector } from 'react-redux';
 import { Avatar } from '@mui/material';
+import { Toolbar } from '@mui/material';
+
 const Profile = () => {
   const userObj = useSelector(x => x.UserSlice);
   const getInitial = (name) => {
@@ -14,6 +16,7 @@ const Profile = () => {
   return (
     <>
       <ResponsiveAppBar />
+      {/* <Toolbar /> */}
       <div className="profile-container">
         <div className="profile-header">
           <h1>שלום, {userObj.name}</h1>

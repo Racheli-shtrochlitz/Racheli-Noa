@@ -32,15 +32,15 @@ const Favorite = () => {
         <>
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="מועדפים">
-                <FavoriteIcon
-  onClick={handleOpenUserMenu}
-  sx={{
-    color: 'secondary.main', // צבע הלב
-    fontSize: 40, // גודל הלב
-    WebkitTextStroke: '2px secondary.main', // מסגרת סביב הלב
-    WebkitTextFillColor: 'white', // צבע המילוי
-  }}
-/>
+                    <FavoriteIcon
+                        onClick={handleOpenUserMenu}
+                        sx={{
+                            color: 'primary.main', // צבע הלב
+                            fontSize: 40, // גודל הלב
+                            WebkitTextStroke: '2px secondary.main', // מסגרת סביב הלב
+                            WebkitTextFillColor: 'white', // צבע המילוי
+                        }}
+                    />
 
                 </Tooltip>
                 <Menu

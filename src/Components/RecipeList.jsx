@@ -10,6 +10,8 @@ import { Grid } from '@mui/joy';
 import { Link, useNavigate } from 'react-router-dom';
 import '../RecipeList.css';
 import AddRecipeAlert from './AddRecipeAlert'
+import { Toolbar } from '@mui/material';
+
 export default function RentalDashboard() {
     const dispatch = useDispatch();
     const arrObj = useSelector(x => x.RecipeListSlice);
@@ -17,6 +19,7 @@ export default function RentalDashboard() {
         <>
            <AddRecipeAlert />
             <ResponsiveAppBar />
+            <Toolbar />
             <CssVarsProvider disableTransitionOnChange>
                 <CssBaseline />
                 <Box className="rental-dashboard-container" sx={{ paddingTop: '80px', }}>

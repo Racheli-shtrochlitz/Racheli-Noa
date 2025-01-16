@@ -10,9 +10,10 @@ import {
   Box,
   Button,
   Avatar,
+  Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from '../img/logo.png';
+import logo from '../img/logo2.png';
 import { useSelector } from "react-redux";
 import Favorite from "./Favorite";
 const pages = [
@@ -64,7 +65,6 @@ const ResponsiveAppBar = () => {
       }}
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
-        {/* לוגו */}
         <Typography
           variant="h6"
           sx={{
@@ -98,16 +98,16 @@ const ResponsiveAppBar = () => {
             >
               <Button
                 sx={{
-                  color: "#388e3c", // ירוק כהה
+                  color: "primary.main", // ירוק כהה
                   fontSize: "16px",
                   fontWeight: "500",
                   ":hover": {
-                    color: "#1b5e20", // ירוק כהה יותר
-                    backgroundColor: "#ffffff", // רקע ירוק בהיר
+                    color: "#FFF", // ירוק כהה יותר
+                    backgroundColor: "#FFF", // רקע ירוק בהיר
                   },
                   borderBottom: "2px solid transparent", // פס מתחת לכפתור
                   ":hover": {
-                    borderBottom: "2px solid #388e3c", // פס ירוק כהה בעת מעבר על הכפתור
+                    borderBottom: "2px solid #4A154B", // פס ירוק כהה בעת מעבר על הכפתור
                   },
                   borderRadius: 0,
 
@@ -124,7 +124,7 @@ const ResponsiveAppBar = () => {
           <IconButton
             size="large"
             onClick={handleOpenNavMenu}
-            sx={{ color: "#388e3c" }}
+            sx={{ color: "#4A154B" }}
           >
             <MenuIcon />
           </IconButton>
@@ -139,7 +139,7 @@ const ResponsiveAppBar = () => {
                   to={page.link}
                   style={{
                     textDecoration: "none",
-                    color: "#388e3c",
+                    color: "#4A154B",
                     fontSize: "16px",
                   }}
                 >
@@ -158,19 +158,21 @@ const ResponsiveAppBar = () => {
           gap: 1.5, // רווח בין האייקונים
         }}>
           <Favorite />
+          <Tooltip title="משתמש">
           <IconButton onClick={handleOpenUserMenu}>
             <Avatar alt="User"
               sx={{
-                backgroundColor: '#E6E1F4', // צבע הרקע
-                color: '#FFF', // צבע הטקסט
+                backgroundColor: '#FFF', // צבע הרקע
+                color: 'primary.main', // צבע הטקסט
                 width: 40, // גודל
                 height: 40, // גודל
-                border: '2px solid #FFFFFF', // הוספת מסגרת לבנה
+                border: '2px solid #4A154B', // הוספת מסגרת לבנה
               }}
 
             > {getInitial(userObj.name)}
             </Avatar>
           </IconButton>
+          </Tooltip>
           <Menu
             anchorEl={anchorElUser}
             open={Boolean(anchorElUser)}
@@ -182,7 +184,7 @@ const ResponsiveAppBar = () => {
                   to={setting.link}
                   style={{
                     textDecoration: "none",
-                    color: "#388e3c",
+                    color: "#4A154B",
                     fontSize: "16px",
                   }}
                 >

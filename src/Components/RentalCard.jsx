@@ -38,7 +38,7 @@ export default function RentalCard(props: RentalCardProps) {
   // פונקציה לשינוי מצב הלייק
   const dispatch = useDispatch();
   const arrObj = useSelector((x) => x.RecipeListSlice);
-
+  const [isFilled, setIsFilled] = React.useState(false);
 
   return (
     <Card
@@ -109,15 +109,21 @@ export default function RentalCard(props: RentalCardProps) {
  // שולח פעולה
         }}
         sx={{
-          position: 'absolute',
-          bottom: 16,  
-          left: 16,    
-          zIndex: 10,
-          borderRadius: '50%',
-          padding: 1,
-          '& svg': {
-            fontSize: '2.5rem',  
+          fontSize: 40, // גודל הלב
+          // color: !isFilled ? 'primary.main' : 'white', // צבע המילוי בעת לחיצה (לבן כשלא מלא)
+          WebkitTextStroke: '2px black', // מסגרת תמידית שחורה
+          cursor: 'pointer', // מצביע עכבר
+          transition: 'color 0.3s ease, transform 0.2s ease', // מעבר חלק ואנימציה
+          transform: isFilled ? 'scale(1.1)' : 'scale(1)', // אפקט קליק
+          '&:hover': {
+            boxShadow: 'none', // הסרת הצל ב-hover
+            backgroundColor: 'transparent', // הסרת רקע ב-hover
           },
+          '&:focus': {
+            outline: 'none', // הסרת ריבוע focus
+          },
+          position: 'relative', //  
+          marginRight: '-17vw', //
         }}
       >
         <FavoriteRoundedIcon />

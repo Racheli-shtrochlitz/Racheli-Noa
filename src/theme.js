@@ -3,13 +3,13 @@ import { createTheme } from '@mui/material';
 export const theme = createTheme({
   direction: 'rtl',
   palette: {
-    primary: {
+    secondary: {
       main: '#4CAF50',  // ירוק
       light: '#81C784',  // ירוק בהיר
       dark: '#388E3C',  // ירוק כהה
       contrastText: '#fff',
     },
-    secondary: {
+      primary: {
       main: '#4A154B',  // סגול כהה
       light: '#9575CD',  // סגול בינוני
       dark: '#7E57C2',  // סגול כהה יותר
