@@ -27,12 +27,12 @@ export default function RecipeDetails() {
     ? element.image.startsWith("data:image")
       ? element.image
       : (() => {
-          try {
-            return require(`../img/${element.image}.jpg`);
-          } catch (error) {
-            return '';
-          }
-        })()
+        try {
+          return require(`../img/${element.image}.jpg`);
+        } catch (error) {
+          return '';
+        }
+      })()
     : '';
 
   return (
@@ -40,15 +40,15 @@ export default function RecipeDetails() {
       <ResponsiveAppBar />
       <Toolbar />
       <div className="recipe-container">
-        <div className="recipe">
+        <div className="recipe-image">
+          {imageSrc ? (
+            <img src={imageSrc} alt={element.name} />
+          ) : (
+            <p>תמונה לא זמינה</p>
+          )}
+        </div>
+        <div className="recipe-details-container">
           <h1>{element.name}</h1>
-          <div className="recipe-image">
-            {imageSrc ? (
-              <img src={imageSrc} alt={element.name} />
-            ) : (
-              <p>תמונה לא זמינה</p>
-            )}
-          </div>
           <div className="recipe-details">
             <p className="time">⏱ זמן הכנה: {element.time}</p>
             <p className="category">🍴 קטגוריה: {element.category}</p>
@@ -71,7 +71,7 @@ export default function RecipeDetails() {
           </div>
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </>
   );
 }
