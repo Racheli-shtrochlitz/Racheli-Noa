@@ -8,10 +8,10 @@ body {
 }
 
 .login-container {
-  width: 100%;
-  max-width: 400px;
+  max-width: 450px;
   padding: 20px;
   margin: auto;
+  width: 100%;
 }
 
 .login-sheet {

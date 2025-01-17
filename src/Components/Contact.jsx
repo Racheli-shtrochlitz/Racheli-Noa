@@ -9,8 +9,6 @@ const Contact = () => {
     return (
         <>
             <div className="contact-container">
-                <ResponsiveAppBar />
-                <Toolbar />
                 <h1 className="contact-title">צור קשר</h1>
                 <p className="contact-description">נשמח לשמוע ממך! אנא מלא את הפרטים בטופס ונחזור אליך בהקדם.</p>
                 <form className="contact-form">
@@ -29,7 +27,7 @@ const Contact = () => {
                     <button type="submit" className="submit-button">שלח</button>
                 </form>
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 };

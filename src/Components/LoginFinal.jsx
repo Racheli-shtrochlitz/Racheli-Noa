@@ -387,8 +387,8 @@ export default function LoginPage() {
             </form>
           </Sheet>
         </div>
-        <Footer />
       </CssVarsProvider>
+      <Footer />
     </>
   );
 }

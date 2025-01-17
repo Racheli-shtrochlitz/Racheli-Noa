@@ -1,33 +1,42 @@
-/* להגדיר את גוף הדף */
+/* הגדרת סגנון כללי לגוף הדף */
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #ffe4e1; /* ורוד בהיר */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff; /* רקע לבן לפי theme.palette.background.default */
+    color: #333;
+    line-height: 1.6;
+    direction: rtl;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* למרכז אופקית */
+    align-items: center; /* למרכז אנכית */
     height: 100vh; /* גובה מלא של המסך */
-    box-sizing: border-box; /* להבטיח שכל האלמנטים ירשו את תיבת התוכן הנכונה */
+    box-sizing: border-box;
 }
 
-/* עיצוב של מיכל יצירת הקשר */
+/* מיכל יצירת הקשר */
 .contact-container {
-    max-width: 800px;
-    width: 90%; /* גמישות למסכים קטנים */
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 45vw;
+    width: 85%;
+    padding: 30px;
+    background-color: #f8f9f9; /* רקע נייר */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
 
 /* כותרת */
-.contact-container h2 {
-    text-align: center;
-    color: #f06292;
+.contact-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #4A154B; /* סגול כהה primary.main */
+    margin-bottom: 20px;
+}
+
+/* תיאור הטופס */
+.contact-description {
+    font-size: 1.2rem;
+    color: #333;
     margin-bottom: 20px;
 }
 
@@ -38,47 +47,46 @@ body {
     gap: 15px;
 }
 
+/* שדות טופס */
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    box-sizing: border-box; /* להבטיח שהגבולות והריפוד ייכללו בגודל */
-    text-align: left; /* אפשר לשנות ל-center אם רוצים למרכז את הטקסט */
+    border-radius: 8px;
+    font-size: 1.1rem;
+    box-sizing: border-box;
+    text-align: right; /* ליישר טקסט לימין */
 }
 
 .contact-form textarea {
-    resize: vertical; /* לאפשר שינוי גובה הטקסט בלבד */
-    min-height: 100px; /* גובה מינימלי */
+    resize: vertical;
+    min-height: 120px;
 }
 
+/* כפתור שליחה */
 .contact-form button {
-    background-color: #f06292;
+    background-color: #4A154B; /* סגול כהה primary.main */
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 18px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .contact-form button:hover {
-    background-color: #d81b60;
+    background-color: #7E57C2; /* סגול כהה יותר primary.dark */
 }
 
-/* עיצוב כותרת */
-.contact-title {
-    font-size: 2rem;
-    color: #f06292;
-    margin-bottom: 20px;
+/* עיצוב עבור קישורים */
+.contact-form a {
+    color: #4A154B; /* סגול כהה primary.main */
+    text-decoration: none;
+    font-weight: bold;
 }
 
-/* עיצוב תיאור הטופס */
-.contact-description {
-    font-size: 1rem;
-    color: #555;
-    margin-bottom: 20px;
+.contact-form a:hover {
+    text-decoration: underline;
 }
