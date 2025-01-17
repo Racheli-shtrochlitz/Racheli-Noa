@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Suspense fallback={'loading...'}><CssVarsProvider><LazyHome /></CssVarsProvider></Suspense>} />
         <Route path='/Login' element={<Suspense fallback={'loading...'}><CssVarsProvider><LazyLogin /></CssVarsProvider></Suspense>} />
-        <Route path='/RecipeDetails' element={<Suspense fallback={'loading...'}><CssVarsProvider><LazyRecipeDetails /></CssVarsProvider></Suspense>} />
+        <Route path='/RecipeDetails/:id' element={<Suspense fallback={'loading...'}><CssVarsProvider><LazyRecipeDetails /></CssVarsProvider></Suspense>} />
         <Route path='/RecipeList' element={<Suspense fallback={'loading...'}><CssVarsProvider><LazyRecipeList /></CssVarsProvider></Suspense>} />
         <Route path='/appbar' element={<Suspense fallback={'loading...'}><ResponsiveAppBar /></Suspense>} />
       </Routes>

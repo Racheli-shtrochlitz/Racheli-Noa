@@ -279,15 +279,6 @@ export default function RentalCard(props) {
               </Link>
             </Typography>
           </div>
-          <IconButton
-            variant="plain"
-            size="sm"
-            color={isLiked ? 'danger' : 'neutral'}
-            onClick={handleLikeToggle}
-            sx={{ display: { xs: 'none', sm: 'flex' }, borderRadius: '50%' }}
-          >
-            <FavoriteRoundedIcon />
-          </IconButton>
         </Stack>
         <Stack direction="row" sx={{ mt: 'auto' }}>
           <Typography
@@ -305,4 +296,3 @@ export default function RentalCard(props) {
     </Card>
   );
 }
-
