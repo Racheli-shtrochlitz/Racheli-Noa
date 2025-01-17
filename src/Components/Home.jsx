@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { Grid } from '@mui/joy';
 import { useEffect } from 'react';
 import { Toolbar } from '@mui/material';
+import Footer from './Footer';
 
 const Home = () => {
     const arrObj = useSelector(x => x.RecipeListSlice);
@@ -112,13 +113,8 @@ const Home = () => {
                     </main>
                 </Grid>
                 <Grid>
-                    <footer className="footer">
-                        <p>
-                            © 2024 אתר המתכונים | <Link to="/about">אודות</Link> | <Link to="/contact">צור קשר</Link>
-                        </p>
-                    </footer>
+                    <Footer />
                 </Grid>
-
             </div>
 
         </Grid>

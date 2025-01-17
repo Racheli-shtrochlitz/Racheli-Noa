@@ -252,6 +252,7 @@ import { useForm } from 'react-hook-form';
 import { Box } from '@mui/system';
 import '../LoginFinal.css';
 import { Toolbar } from '@mui/material';
+import Footer from './Footer';
 
 const SignupSchema = yup.object().shape({
   name: yup.string().required("נא להזין שם"),
@@ -313,84 +314,80 @@ export default function LoginPage() {
       <Toolbar />
       <CssVarsProvider>
         <CssBaseline />
-          <div className="login-container">
-            <Sheet
-              sx={{
-                backgroundColor: theme.palette.background.paper,
-                color: theme.palette.text.primary,
-                borderRadius: '10px',
-                padding: '30px',
-                top: '8vh',
-                height: '60vh',
-                boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
-                textAlign: 'center',
-              }}
-            >
-              <Typography component="h1" sx={{ color: theme.palette.primary.main, fontWeight: 'bold', marginBottom: '10px' }}>
-                ברוך הבא!
-              </Typography>
-              <Typography component="p" sx={{ color: theme.palette.text.secondary, marginBottom: '20px' }}>
-                התחבר כדי להמשיך
-              </Typography>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <FormControl>
-                  <FormLabel>שם</FormLabel>
-                  <Input {...register("name")} error={!!errors.name} />
-                  {errors.name && <Typography sx={{ color: theme.palette.error.main }}>{errors.name.message}</Typography>}
-                </FormControl>
-                <FormControl>
-                  <FormLabel>מייל</FormLabel>
-                  <Input {...register("email")} type="email" error={!!errors.email} />
-                  {errors.email && <Typography sx={{ color: theme.palette.error.main }}>{errors.email.message}</Typography>}
-                </FormControl>
-                <FormControl>
-                  <FormLabel>סיסמה</FormLabel>
-                  <Input
-                    {...register("password")}
-                    type="password"
-                    onChange={(e) => validatePassword(e.target.value)}
-                    error={!!errors.password}
-                  />
-                  {errors.password && <Typography sx={{ color: theme.palette.error.main }}>{errors.password.message}</Typography>}
-                  {isTyping && (
-                    <Box>
-                      <ul>
-                        {passwordRules.map((rule, index) => (
-                          <li key={index}>
-                            <Typography
-                              sx={{
-                                color: passwordErrors.includes(rule.message)
-                                  ? theme.palette.error.main
-                                  : theme.palette.success.main,
-                              }}
-                            >
-                              {rule.message}
-                            </Typography>
-                          </li>
-                        ))}
-                      </ul>
-                    </Box>
-                  )}
-                </FormControl>
-                <Button
-                  type="submit"
-                  sx={{
-                    marginTop: '20px',
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.primary.contrastText,
-                    '&:hover': { backgroundColor: theme.palette.primary.dark },
-                  }}
-                >
-                  התחבר
-                </Button>
-              </form>
-            </Sheet>
-          </div>
-            <footer className="footer">
-              <p>
-                © 2024 אתר המתכונים | <Link to="/">דף הבית</Link> | <Link to="/contact">צור קשר</Link>
-              </p>
-            </footer>
+        <div className="login-container">
+          <Sheet
+            sx={{
+              backgroundColor: theme.palette.background.paper,
+              color: theme.palette.text.primary,
+              borderRadius: '10px',
+              padding: '30px',
+              top: '8vh',
+              height: '60vh',
+              boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+              textAlign: 'center',
+            }}
+          >
+            <Typography component="h1" sx={{ color: theme.palette.primary.main, fontWeight: 'bold', marginBottom: '10px' }}>
+              ברוך הבא!
+            </Typography>
+            <Typography component="p" sx={{ color: theme.palette.text.secondary, marginBottom: '20px' }}>
+              התחבר כדי להמשיך
+            </Typography>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <FormControl>
+                <FormLabel>שם</FormLabel>
+                <Input {...register("name")} error={!!errors.name} />
+                {errors.name && <Typography sx={{ color: theme.palette.error.main }}>{errors.name.message}</Typography>}
+              </FormControl>
+              <FormControl>
+                <FormLabel>מייל</FormLabel>
+                <Input {...register("email")} type="email" error={!!errors.email} />
+                {errors.email && <Typography sx={{ color: theme.palette.error.main }}>{errors.email.message}</Typography>}
+              </FormControl>
+              <FormControl>
+                <FormLabel>סיסמה</FormLabel>
+                <Input
+                  {...register("password")}
+                  type="password"
+                  onChange={(e) => validatePassword(e.target.value)}
+                  error={!!errors.password}
+                />
+                {errors.password && <Typography sx={{ color: theme.palette.error.main }}>{errors.password.message}</Typography>}
+                {isTyping && (
+                  <Box>
+                    <ul>
+                      {passwordRules.map((rule, index) => (
+                        <li key={index}>
+                          <Typography
+                            sx={{
+                              color: passwordErrors.includes(rule.message)
+                                ? theme.palette.error.main
+                                : theme.palette.success.main,
+                            }}
+                          >
+                            {rule.message}
+                          </Typography>
+                        </li>
+                      ))}
+                    </ul>
+                  </Box>
+                )}
+              </FormControl>
+              <Button
+                type="submit"
+                sx={{
+                  marginTop: '20px',
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.primary.contrastText,
+                  '&:hover': { backgroundColor: theme.palette.primary.dark },
+                }}
+              >
+                התחבר
+              </Button>
+            </form>
+          </Sheet>
+        </div>
+        <Footer />
       </CssVarsProvider>
     </>
   );

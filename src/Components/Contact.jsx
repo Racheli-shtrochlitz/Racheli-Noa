@@ -3,6 +3,7 @@ import '../Contact.css';
 import { Link } from 'react-router-dom';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import { Toolbar } from '@mui/material';
+import Footer from './Footer';
 
 const Contact = () => {
     return (
@@ -28,11 +29,7 @@ const Contact = () => {
                     <button type="submit" className="submit-button">שלח</button>
                 </form>
             </div>
-            <footer className="footer">
-                <p>
-                    © 2024 אתר המתכונים | <Link to="/">דף הבית</Link> | <Link to="/contact">צור קשר</Link>
-                </p>
-            </footer>
+            <Footer/>
         </>
     );
 };

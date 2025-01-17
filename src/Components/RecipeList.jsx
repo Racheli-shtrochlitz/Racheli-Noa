@@ -5,19 +5,20 @@ import Box from '@mui/joy/Box';
 import Stack from '@mui/joy/Stack';
 import RentalCard from './RentalCard';
 import { useSelector, useDispatch, Provider } from "react-redux"
- import ResponsiveAppBar from './ResponsiveAppBar';
+import ResponsiveAppBar from './ResponsiveAppBar';
 import { Grid } from '@mui/joy';
 import { Link, useNavigate } from 'react-router-dom';
 import '../RecipeList.css';
 import AddRecipeAlert from './AddRecipeAlert'
 import { Toolbar } from '@mui/material';
+import Footer from './Footer';
 
 export default function RentalDashboard() {
     const dispatch = useDispatch();
     const arrObj = useSelector(x => x.RecipeListSlice);
     return (
         <>
-           <AddRecipeAlert />
+            <AddRecipeAlert />
             <ResponsiveAppBar />
             <Toolbar />
             <CssVarsProvider disableTransitionOnChange>
@@ -57,11 +58,7 @@ export default function RentalDashboard() {
                     </Stack>
                 </Box>
             </CssVarsProvider>
-            <footer className="footer">
-                <p>
-                    © 2024 אתר המתכונים | <Link to="/">דף הבית</Link> | <Link to="/contact">צור קשר</Link>
-                </p>
-            </footer>
+            <Footer />
         </>
     );
 }

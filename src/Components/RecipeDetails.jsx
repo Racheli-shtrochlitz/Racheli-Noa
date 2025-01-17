@@ -6,6 +6,7 @@ import ResponsiveAppBar from './ResponsiveAppBar';
 import '../Home.css';
 import '../RecipeDetails.css';
 import { Toolbar } from '@mui/material';
+import Footer from './Footer';
 
 export default function RecipeDetails() {
   const { id } = useParams();
@@ -70,11 +71,7 @@ export default function RecipeDetails() {
           </div>
         </div>
       </div>
-      <footer className="footer">
-        <p>
-          © 2024 אתר המתכונים | <Link to="/">דף הבית</Link> | <Link to="/contact">צור קשר</Link>
-        </p>
-      </footer>
+      <Footer/>
     </>
   );
 }

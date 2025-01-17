@@ -65,25 +65,3 @@ body {
 .submit-button:hover {
   background-color: #ad1457;
 }
-
-/* פוטר */
-.footer {
-  width: 100vw;
-  bottom: 0px;
-  text-align: center;
-  padding: 15px;
-  background-color: #4a154b;
-  color: white;
-  font-size: 0.9rem;
-}
-
-.footer a {
-  color: #4caf50;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s;
-}
-
-.footer a:hover {
-  color: #81c784;
-}

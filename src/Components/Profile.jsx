@@ -6,6 +6,7 @@ import ResponsiveAppBar from './ResponsiveAppBar';
 import { useSelector } from 'react-redux';
 import { Avatar } from '@mui/material';
 import { Toolbar } from '@mui/material';
+import Footer from './Footer';
 
 const Profile = () => {
   const userObj = useSelector(x => x.UserSlice);
@@ -25,7 +26,7 @@ const Profile = () => {
 
         <div className="profile-details">
           <div className="profile-image">
-          <Avatar sx={{ bgcolor: 'primary.main', width: 100, height: 100, fontSize: '2rem' }}>
+            <Avatar sx={{ bgcolor: 'primary.main', width: 100, height: 100, fontSize: '2rem' }}>
               {getInitial(userObj.name)}
             </Avatar>
           </div>
@@ -43,11 +44,7 @@ const Profile = () => {
           </Link>
         </div>
       </div>
-      <footer className="footer">
-        <p>
-          © 2024 אתר המתכונים | <Link to="/">דף הבית</Link> | <Link to="/contact">צור קשר</Link>
-        </p>
-      </footer>
+      <Footer />
     </>
   );
 };
