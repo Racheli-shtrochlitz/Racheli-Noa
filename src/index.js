@@ -7,23 +7,36 @@ import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 import UserSlice from './Store/UserSlice';
 import RecipeListSlice from './Store/RecipeListSlice';
-import { Provider } from 'react-redux'
-import { CssVarsProvider } from '@mui/joy/styles';
-const root = ReactDOM.createRoot(document.getElementById('root'));
-const myStore = configureStore({
+import { Provider } from 'react-redux';
+import rtlPlugin from 'stylis-plugin-rtl';
+import { prefixer } from 'stylis';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
+
+// RTL Configuration
+const cacheRtl = createCache({
+  key: 'muirtl',
+  stylisPlugins: [prefixer, rtlPlugin],
+});
+const store = configureStore({
   reducer: {
     UserSlice,
-    RecipeListSlice
-  }
-})
+    RecipeListSlice,
+  },
+});
+
+// Application Rendering
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter>
-  <CssVarsProvider>
-  <Provider store={myStore}>
-    <App />
-    </Provider>
-    </CssVarsProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+  <Provider store={store}>
+    <CacheProvider value={cacheRtl}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </CacheProvider>
+  </Provider>
+</React.StrictMode>
 );
 
 reportWebVitals();

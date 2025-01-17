@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialValue = {
-    email: "",
-    password: ""
+    name: "?",
+    email: "example@example.com",
+    password: "123456"
 }
 
 const userSlice = createSlice({
@@ -15,6 +16,7 @@ const userSlice = createSlice({
         createUser: (state, actions) => {
             state.email=actions.payload.email
             state.password =actions.payload.password
+            state.name = actions.payload.name
         }
     }
 
