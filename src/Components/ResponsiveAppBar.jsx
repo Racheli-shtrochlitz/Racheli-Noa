@@ -58,9 +58,9 @@ const ResponsiveAppBar = () => {
       position="sticky"
       sx={{
         backgroundColor: "#ffffff", // לבן
-        color: "#388e3c", // ירוק כהה
+        color: "#412948", // ירוק כהה
         boxShadow: "none", // ללא הצללה
-        borderBottom: "1px solid #c5e1a5", // קו תחתון ירוק בהיר
+        borderBottom: "1px solid #412948", // קו תחתון ירוק בהיר
         position: "fixed",
       }}
     >
@@ -166,7 +166,7 @@ const ResponsiveAppBar = () => {
                 color: 'primary.main', // צבע הטקסט
                 width: 40, // גודל
                 height: 40, // גודל
-                border: '2px solid #4A154B', // הוספת מסגרת לבנה
+                border: '2px solid #4A154B', // הוספת מסגרת   סגולה
               }}
 
             > {getInitial(userObj.name)}

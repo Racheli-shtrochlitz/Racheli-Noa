@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import Typography from '@mui/material/Typography';
 import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
-import { Box, Menu, Tooltip } from "@mui/material";
+import { Box, IconButton, Menu, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 const Favorite = () => {
     const navigate = useNavigate();
@@ -32,15 +32,18 @@ const Favorite = () => {
         <>
             <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="מועדפים">
+                     <IconButton>
                     <FavoriteIcon
+                  
                         onClick={handleOpenUserMenu}
                         sx={{
                             color: 'primary.main', // צבע הלב
                             fontSize: 40, // גודל הלב
                             WebkitTextStroke: '2px secondary.main', // מסגרת סביב הלב
                             WebkitTextFillColor: 'white', // צבע המילוי
+                            
                         }}
-                    />
+                    /> </IconButton>
 
                 </Tooltip>
                 <Menu
@@ -85,9 +88,6 @@ const Favorite = () => {
                     )}
                 </Menu>
             </Box>
-
-
-
         </>
     );
 };
