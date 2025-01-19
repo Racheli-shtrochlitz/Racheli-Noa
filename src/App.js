@@ -13,6 +13,7 @@ const LazyRecipeList = React.lazy(() => import('./Components/RecipeList'))
 const LazyAbout = React.lazy(() => import('./Components/About'))
 const LazyContact = React.lazy(() => import('./Components/Contact'))
 const LazyProfile = React.lazy(() => import('./Components/Profile'))
+const LazyLogout = React.lazy(() => import('./Components/Logout'))
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
         <Route path='/contact' element={<Suspense fallback={'loading...'}><LazyContact /></Suspense>} />
         <Route path='/profile' element={<Suspense fallback={'loading...'}><LazyProfile /></Suspense>} />
         <Route path='/AddRecipeAlert' element={<Suspense fallback={'loading...'}><AddRecipeAlert /></Suspense>} />
+        <Route path='/account' element={<Suspense fallback={'loading...'}><LazyProfile /></Suspense>} />
+        <Route path='/logout' element={<Suspense fallback={'loading...'}><LazyLogout /></Suspense>} />
       </Routes>
     </div>
     </ThemeProvider>
