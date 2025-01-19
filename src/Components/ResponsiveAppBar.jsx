@@ -13,7 +13,7 @@ import {
   Tooltip,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import logo from '../img/לבריאות.svg';
+import logo from '../img/333.png';
 import { useSelector } from "react-redux";
 import Favorite from "./Favorite";
 const pages = [
