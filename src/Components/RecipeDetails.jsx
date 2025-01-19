@@ -7,6 +7,7 @@ import '../Home.css';
 import '../RecipeDetails.css';
 import { Toolbar } from '@mui/material';
 import Footer from './Footer';
+import { Box } from '@mui/system';
 
 export default function RecipeDetails() {
   const { id } = useParams();
@@ -40,13 +41,30 @@ export default function RecipeDetails() {
       <ResponsiveAppBar />
       <Toolbar />
       <div className="recipe-container">
-        <div className="recipe-image">
+        <Box sx={{
+          display: 'flex', // הפעלת Flexbox
+          justifyContent: 'center', // יישור אופקי
+          alignItems: 'center', // יישור אנכי
+          width: '50%',
+          height: '100vh', // גובה של כל העמוד
+          textAlign: 'center',
+        }}>
           {imageSrc ? (
-            <img src={imageSrc} alt={element.name} />
+            <img
+              src={imageSrc}
+              alt={element.name}
+              style={{
+                width: '100%',
+                height: 'auto',
+                objectFit: 'cover',
+                borderRadius: '8px',
+              }}
+            />
           ) : (
             <p>תמונה לא זמינה</p>
           )}
-        </div>
+        </Box>
+
         <div className="recipe-details-container">
           <h1>{element.name}</h1>
           <div className="recipe-details">
@@ -71,6 +89,7 @@ export default function RecipeDetails() {
           </div>
         </div>
       </div>
+      
       <Footer />
     </>
   );
