@@ -8,6 +8,7 @@ import Footer from './Footer';
 const Contact = () => {
     return (
         <>
+           <ResponsiveAppBar />
             <div className="contact-container">
                 <h1 className="contact-title">צור קשר</h1>
                 <p className="contact-description">נשמח לשמוע ממך! אנא מלא את הפרטים בטופס ונחזור אליך בהקדם.</p>

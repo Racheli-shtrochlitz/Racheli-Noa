@@ -11,16 +11,19 @@ const userSlice = createSlice({
     initialState: initialValue,
     reducers: {
         updatePassword: (state, actions) => {
-            state.password = actions.payload    
+            state.password = actions.payload
         },
         createUser: (state, actions) => {
-            state.email=actions.payload.email
-            state.password =actions.payload.password
+            state.email = actions.payload.email
+            state.password = actions.payload.password
             state.name = actions.payload.name
+        },
+        logout: (state, actions) => {
+            return initialValue;
         }
     }
 
 })
 
-export const {updatePassword,createUser} = userSlice.actions
+export const { updatePassword, createUser, logout } = userSlice.actions
 export default userSlice.reducer

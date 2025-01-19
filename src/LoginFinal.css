@@ -9,6 +9,7 @@ body {
 
 .login-container {
   max-width: 450px;
+  max-height: fit-content;
   padding: 20px;
   margin: auto;
   width: 100%;
