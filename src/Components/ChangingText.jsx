@@ -1,17 +1,28 @@
-import React, { useEffect, useState } from 'react';
-
+import { motion } from 'framer-motion';
+import React from 'react'; 
 const ChangingText = () => {
-    const words = ['טעימים ', 'בריאים ', 'מהירים '];
-    const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const phrases = ["בריאים", "טעימים", "מזינים", "טריים"];
+    const [index, setIndex] = React.useState(0);
 
-    useEffect(() => {
+    React.useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
-        }, 2000);
+            setIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+        }, 2000); // שנה כל 2 שניות
+
         return () => clearInterval(interval);
     }, []);
 
-    return <span className="changing-text">{words[currentWordIndex]}</span>;
-}
+    return (
+        <motion.div
+            key={index}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            transition={{ duration: 0.5 }}
+        >
+            {phrases[index]}
+        </motion.div>
+    );
+};
 
 export default ChangingText;
