@@ -42,12 +42,13 @@ export default function RecipeDetails() {
       <Toolbar />
       <div className="recipe-container">
         <Box sx={{
-          display: 'flex', // הפעלת Flexbox
-          justifyContent: 'center', // יישור אופקי
-          alignItems: 'center', // יישור אנכי
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           width: '50%',
-          height: '100vh', // גובה של כל העמוד
+          height: 'auto', 
           textAlign: 'center',
+          padding: '20px', 
         }}>
           {imageSrc ? (
             <img
@@ -64,6 +65,7 @@ export default function RecipeDetails() {
             <p>תמונה לא זמינה</p>
           )}
         </Box>
+
 
         <div className="recipe-details-container">
           <h1>{element.name}</h1>
@@ -89,7 +91,7 @@ export default function RecipeDetails() {
           </div>
         </div>
       </div>
-      
+
       <Footer />
     </>
   );

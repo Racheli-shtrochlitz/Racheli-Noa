@@ -3,18 +3,17 @@ import '../Logout.css';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import Footer from './Footer';
 import { useDispatch } from 'react-redux';
-import { logout } from '../Store/UserSlice'; // ייבוא נכון של logout
+import { logout } from '../Store/UserSlice'; 
 
 const Logout = () => {
     const dispatch = useDispatch(); // הפעלת useDispatch כאן
 
     const handleGoHome = () => {
-        // פונקציה לדפדוף לדף הבית
         window.location.href = '/';
     };
 
     const handleLogout = () => {
-        dispatch(logout()); // מאפס את פרטי המשתמש ב-Redux
+        dispatch(logout); 
         window.location.href = '/'; // הפניה לדף הבית
     };
 
@@ -30,7 +29,7 @@ const Logout = () => {
                     </button>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 };

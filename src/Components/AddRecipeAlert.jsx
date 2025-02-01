@@ -72,12 +72,12 @@ export default function AddRecipeAlert() {
         onClick={toggleDrawer(true)}
         style={{
           position: "fixed",
-          top: "100px", // הכפתור ממוקם למעלה של המסך
-          left: "-80px", // יוצא החוצה מהמסך בצד שמאל
+          top: "100px", 
+          left: "-80px", 
           zIndex: 1000,
-          borderRadius: "30px",  // רדיוס קצוות כדי ליצור צורת אליפסה
-          width: "200px", // רוחב אליפסה
-          height: "60px", // גובה אליפסה
+          borderRadius: "30px",  
+          width: "200px", 
+          height: "60px", 
           padding: 23,
           boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
           display: "flex",
@@ -88,27 +88,12 @@ export default function AddRecipeAlert() {
         <Typography
           variant="h6"
           style={{
-            fontSize: "18px",  // גודל הטקסט
+            fontSize: "18px", 
           }}
         >
           הוספת מתכון
         </Typography>
       </Button>
-
-      {/* <Button
-        variant="contained" // כפתור להוספת מתכון
-        color="primary"
-        onClick={toggleDrawer(true)}
-        style={{
-          position: "fixed",
-          bottom: "10px",
-          left: "20px",
-          zIndex: 1000,
-        }}
-      >
-        הוסף מתכון
-      </Button> */}
-
       <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)}>
         <Box p={2} width={300} role="presentation" textAlign="center">
           <Typography variant="h6" gutterBottom>

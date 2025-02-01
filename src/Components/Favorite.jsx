@@ -1,9 +1,7 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import * as React from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Typography from '@mui/material/Typography';
-import Avatar from '@mui/material/Avatar';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, IconButton, Menu, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";

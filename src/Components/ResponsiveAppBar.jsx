@@ -58,9 +58,9 @@ const ResponsiveAppBar = () => {
       position="sticky"
       sx={{
         backgroundColor: "#ffffff", // לבן
-        color: "#412948", // ירוק כהה
-        boxShadow: "none", // ללא הצללה
-        borderBottom: "1px solid #412948", // קו תחתון ירוק בהיר
+        color: "#412948", 
+        boxShadow: "none", 
+        borderBottom: "1px solid #412948", 
         position: "fixed",
       }}
     >
@@ -71,22 +71,22 @@ const ResponsiveAppBar = () => {
             fontWeight: "bold",
             fontSize: "24px",
             fontFamily: "Arial, sans-serif",
-            color: "#388e3c", // ירוק כהה
+            color: "#388e3c", 
           }}
         >
           <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
             <img
-              src={logo} // הכנס את הנתיב של התמונה שלך כאן
+              src={logo} 
 
               style={{
-                height: "80px", // אתה יכול לשנות את הגובה של התמונה בהתאם לעיצוב שלך
-                width: "auto", // רוחב מותאם באופן אוטומטי לפי הגובה
+                height: "80px", 
+                width: "auto",
               }}
             />
           </Link>
         </Typography>
 
-        {/* תפריט למכשירים גדולים */}
+        {/*תפריט דפים*/}
         <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
           {pages.map((page) => (
             <Link
@@ -98,16 +98,16 @@ const ResponsiveAppBar = () => {
             >
               <Button
                 sx={{
-                  color: "primary.main", // ירוק כהה
+                  color: "primary.main", 
                   fontSize: "16px",
                   fontWeight: "500",
                   ":hover": {
-                    color: "#FFF", // ירוק כהה יותר
-                    backgroundColor: "#FFF", // רקע ירוק בהיר
+                    color: "#FFF", 
+                    backgroundColor: "#FFF",
                   },
-                  borderBottom: "2px solid transparent", // פס מתחת לכפתור
+                  borderBottom: "2px solid transparent", 
                   ":hover": {
-                    borderBottom: "2px solid #4A154B", // פס ירוק כהה בעת מעבר על הכפתור
+                    borderBottom: "2px solid #4A154B", 
                   },
                   borderRadius: 0,
 
@@ -119,7 +119,7 @@ const ResponsiveAppBar = () => {
           ))}
         </Box>
 
-        {/* תפריט למכשירים קטנים */}
+        {/* תפריט דפים*/}
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
             size="large"
@@ -164,8 +164,8 @@ const ResponsiveAppBar = () => {
               sx={{
                 backgroundColor: '#FFF', // צבע הרקע
                 color: 'primary.main', // צבע הטקסט
-                width: 40, // גודל
-                height: 40, // גודל
+                width: 40,
+                height: 40, 
                 border: '2px solid #4A154B', // הוספת מסגרת   סגולה
               }}
 

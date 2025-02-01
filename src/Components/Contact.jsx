@@ -1,8 +1,6 @@
 import React from 'react';
 import '../Contact.css';
-import { Link } from 'react-router-dom';
 import ResponsiveAppBar from './ResponsiveAppBar';
-import { Toolbar } from '@mui/material';
 import Footer from './Footer';
 
 const Contact = () => {
@@ -28,7 +26,6 @@ const Contact = () => {
                     <button type="submit" className="submit-button">שלח</button>
                 </form>
             </div>
-            <Footer />
         </>
     );
 };

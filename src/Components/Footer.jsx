@@ -10,9 +10,9 @@ const Footer = () => {
         backgroundColor: "primary.main",
         color: "white",
         textAlign: "center",
-        py: 2, // Padding vertically
-        px: 4, // Padding horizontally
-        mt: 4, // Margin top for spacing
+        py: 2,
+        px: 4,
+        mt: 4,
       }}
     >
       <Typography variant="body2" sx={{ mb: 1 }}>
