@@ -5,7 +5,7 @@
 .footer a {
     color: #4caf50;
     text-decoration: none;
-    margin: 0 10px;
+    margin: 0 ;
     transition: color 0.3s;
 }
 
@@ -13,7 +13,7 @@
     width: 100vw;
     text-align: center;
     padding: 15px;
-    background-color: #4a154b;
+    background-color: #4a154b !important;
     color: white;
     font-size: 0.9rem;
 }

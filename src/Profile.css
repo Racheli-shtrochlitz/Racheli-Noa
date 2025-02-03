@@ -1,12 +1,13 @@
 body {
   margin: 0;
-  margin-bottom: 0vh;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(to bottom, #ede7f6, #ffffff);
+  /* רקע בגווני סגול ולבן */
   height: 100vh;
-  display: grid; /* שימוש בגריד */
-  place-items: center; /* מיקום האלמנטים במרכז */
-  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-container {

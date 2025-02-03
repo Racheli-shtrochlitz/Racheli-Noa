@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { Box, Typography } from "@mui/material";
-
 const Footer = () => {
   return (
     <Box

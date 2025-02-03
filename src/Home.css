@@ -46,7 +46,7 @@ main {
 .container {
     /* max-width: 1200px; */
     margin: 0 auto;
-    padding: 20px;
+    padding: 10px;
 }
 
 header {
@@ -66,7 +66,6 @@ header {
     font-weight: bold;
     color: #4a154b;
     text-align: center;
-    margin-bottom: 10px;
 }
 
 .welcome-description {

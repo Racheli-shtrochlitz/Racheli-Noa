@@ -44,7 +44,6 @@ const Profile = () => {
           </Link>
         </div>
       </div>
-      <Footer />
     </>
   );
 };

@@ -23,7 +23,7 @@ export default function RentalDashboard() {
             <Toolbar />
             <CssVarsProvider disableTransitionOnChange>
                 <CssBaseline />
-                <Box className="rental-dashboard-container" sx={{ paddingTop: '80px', }}>
+                <Box className="rental-dashboard-container" sx={{ paddingTop: '80px', backgroundColor: 'white',height:'100vh'}}>
                     <Stack className="stack">
                     </Stack>
                     <Box className="background-image-box" />
@@ -56,10 +56,10 @@ export default function RentalDashboard() {
                             ))}
                         </Grid>
                     </Stack>
+                    <Footer />
                 </Box>
             </CssVarsProvider>
-            <Footer />
+            
         </>
     );
 }
-

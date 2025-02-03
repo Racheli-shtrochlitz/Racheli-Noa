@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import '../Home.css';
 import '../RecipeDetails.css';
-import { Toolbar } from '@mui/material';
+import { CssBaseline, Toolbar } from '@mui/material';
 import Footer from './Footer';
 import { Box } from '@mui/system';
 
@@ -39,7 +39,7 @@ export default function RecipeDetails() {
   return (
     <>
       <ResponsiveAppBar />
-      <Toolbar />
+      <CssBaseline/>
       <div className="recipe-container">
         <Box sx={{
           display: 'flex',

@@ -53,7 +53,7 @@ export default function RentalCard(props: RentalCardProps) {
           boxShadow: 'lg',
           borderColor: 'var(--joy-palette-neutral-outlinedDisabledBorder)',
         },
-        position: 'relative', 
+        position: 'relative',
         boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.1)',
         borderRadius: '12px',
         transition: 'transform 0.2s, box-shadow 0.2s',
@@ -81,7 +81,7 @@ export default function RentalCard(props: RentalCardProps) {
         <Stack spacing={1} direction="row" sx={{ justifyContent: 'space-between', alignItems: 'flex-start' }}>
           <div>
             <Typography
-              level="h6" 
+              level="h6"
               fontWeight="bold"
               sx={{ fontSize: '1.2rem' }}
             >
@@ -100,13 +100,13 @@ export default function RentalCard(props: RentalCardProps) {
       <IconButton
         variant="plain"
         size="lg"
-        color={isLiked ? 'danger' : 'neutral'}
+        color={arrObj.arr[index].like ? 'danger' : 'neutral'}
         onClick={(e) => {
           e.stopPropagation(); // מונע מהלחיצה על הלב להפעיל את הלינק
           const newLikedStatus = !isLiked; // מחשבים את מצב הלייק החדש
-    setIsLiked(newLikedStatus); // משנה את מצב הלייק
-    dispatch(ChangeLike({ isLiked: newLikedStatus, index }));
- // שולח פעולה
+          setIsLiked(newLikedStatus); // משנה את מצב הלייק
+          dispatch(ChangeLike({ isLiked: newLikedStatus, index }));
+          // שולח פעולה
         }}
         sx={{
           fontSize: 40, // גודל הלב
