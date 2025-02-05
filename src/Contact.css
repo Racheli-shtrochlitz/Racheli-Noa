@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center; /* למרכז אופקית */
     align-items: center; /* למרכז אנכית */
-    height: 100vh; /* גובה מלא של המסך */
+    /* height: 100vh; */
     box-sizing: border-box;
 }
 

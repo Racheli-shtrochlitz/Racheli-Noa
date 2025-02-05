@@ -23,9 +23,9 @@ export default function RentalDashboard() {
             <Toolbar />
             <CssVarsProvider disableTransitionOnChange>
                 <CssBaseline />
-                <Box className="rental-dashboard-container" sx={{ paddingTop: '80px', backgroundColor: 'white',height:'100vh'}}>
-                    <Stack className="stack">
-                    </Stack>
+                <Box className="rental-dashboard-container" sx={{ paddingTop: '80px', backgroundColor: 'white'}}>
+                    {/* <Stack className="stack">
+                    </Stack> */}
                     <Box className="background-image-box" />
                     <Stack spacing={2} className="content-stack">
                         <Grid container spacing={2}>

@@ -12,7 +12,6 @@ body {
     background-position: center;
     background-attachment: fixed; /* זה יגרום לתמונה להישאר במקום בזמן גלילה */
     z-index: -1;
-    height: 100vh;
 }
 
 .parallax-content {
@@ -41,6 +40,7 @@ body {
 main {
     margin-top: 100px; 
     width: 100%;
+    
 }
 
 .container {

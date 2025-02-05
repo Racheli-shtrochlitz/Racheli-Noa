@@ -55,6 +55,17 @@ const Home = () => {
                                 <p>סלט ירוק עם אגסים ואגוזים</p>
                             </div>
                         </div>
+                        <br />
+                        <div className="recipe-cards">
+                            <div className="recipe-card">
+                                <img src={recipe1} alt="Recipe 1" />
+                                <p>סלט קינואה וירקות קלויים</p>
+                            </div>
+                            <div className="recipe-card">
+                                <img src={recipe2} alt="Recipe 2" />
+                                <p>סלט ירוק עם אגסים ואגוזים</p>
+                            </div>
+                        </div>
                     </div>
 
                     <section className="about">

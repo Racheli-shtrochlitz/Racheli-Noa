@@ -1,13 +1,13 @@
 body {
-    margin: 0;
-    padding: 0;
+    /* margin: 0;
+    padding: 0; */
     font-family: 'Open Sans', sans-serif;
     background: linear-gradient(to bottom, #ede7f6, #ffffff);
-    /* רקע בגווני סגול ולבן */
+/*    
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .logout-container {
@@ -27,26 +27,26 @@ body {
     max-width: 400px;
     width: 100%;
     border: 2px solid #9575cd;
-    /* מסגרת בגוון סגול */
+   
 }
 
 .logout-box h1 {
     font-size: 2rem;
     color: #4a154b;
-    /* סגול כהה לכותרת */
+  
     margin-bottom: 15px;
 }
 
 .logout-box p {
     font-size: 1.2rem;
     color: #333;
-    /* צבע טקסט אפור כהה */
+ 
     margin-bottom: 20px;
 }
 
 .logout-button {
     background-color: #9575cd;
-    /* צבע סגול לכפתור */
+
     color: #ffffff;
     border: none;
     border-radius: 8px;
@@ -58,6 +58,6 @@ body {
 
 .logout-button:hover {
     background-color: #6a1b9a;
-    /* סגול כהה יותר בעת ריחוף */
+    
     box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
 }

@@ -8,6 +8,7 @@ import '../RecipeDetails.css';
 import { CssBaseline, Toolbar } from '@mui/material';
 import Footer from './Footer';
 import { Box } from '@mui/system';
+import { CssVarsProvider } from '@mui/joy';
 
 export default function RecipeDetails() {
   const { id } = useParams();
@@ -39,60 +40,65 @@ export default function RecipeDetails() {
   return (
     <>
       <ResponsiveAppBar />
-      <CssBaseline/>
-      <div className="recipe-container">
-        <Box sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          width: '50%',
-          height: 'auto', 
-          textAlign: 'center',
-          padding: '20px', 
-        }}>
-          {imageSrc ? (
-            <img
-              src={imageSrc}
-              alt={element.name}
-              style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'cover',
-                borderRadius: '8px',
-              }}
-            />
-          ) : (
-            <p>תמונה לא זמינה</p>
-          )}
-        </Box>
+      <Toolbar />
+      <CssVarsProvider disableTransitionOnChange>
+        <CssBaseline />
+        <div className="recipe-container">
+          <Box sx={{
+            display: 'flex',
+            //  justifyContent: 'center',
+            // alignItems: 'center',
+            width: '50%',
+            height: 'auto',
+            // textAlign: 'center',
+            padding: '20px',
+          }}>
+            {imageSrc ? (
+              <img
+                src={imageSrc}
+                alt={element.name}
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                  objectFit: 'cover',
+                  borderRadius: '8px',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              />
+            ) : (
+              <p>תמונה לא זמינה</p>
+            )}
+          </Box>
 
 
-        <div className="recipe-details-container">
-          <h1>{element.name}</h1>
-          <div className="recipe-details">
-            <p className="time">⏱ זמן הכנה: {element.time}</p>
-            <p className="category">🍴 קטגוריה: {element.category}</p>
-          </div>
-          <div className="recipe-ingredients">
-            <h2>רכיבים</h2>
-            <ul>
-              {element.products.map((product, index) => (
-                <li key={index}>{product}</li>
-              ))}
-            </ul>
-          </div>
-          <div className="recipe-instructions">
-            <h2>הוראות הכנה</h2>
-            <ul>
-              {element.instructions.map((instruction, index) => (
-                <li key={index}>{instruction}</li>
-              ))}
-            </ul>
+          <div className="recipe-details-container">
+            <h1>{element.name}</h1>
+            <div className="recipe-details">
+              <p className="time">⏱ זמן הכנה: {element.time}</p>
+              <p className="category">🍴 קטגוריה: {element.category}</p>
+            </div>
+            <div className="recipe-ingredients">
+              <h2>רכיבים</h2>
+              <ul>
+                {element.products.map((product, index) => (
+                  <li key={index}>{product}</li>
+                ))}
+              </ul>
+            </div>
+            <div className="recipe-instructions">
+              <h2>הוראות הכנה</h2>
+              <ul>
+                {element.instructions.map((instruction, index) => (
+                  <li key={index}>{instruction}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
 
-      <Footer />
+        <Footer />
+      </CssVarsProvider>
     </>
   );
 }
