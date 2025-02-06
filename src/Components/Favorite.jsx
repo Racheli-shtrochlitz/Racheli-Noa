@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import { Box, IconButton, Menu, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import useRecipeListObj from "../Hooks/useRecipeListObj";
 const Favorite = () => {
     const navigate = useNavigate();
 
@@ -13,7 +14,7 @@ const Favorite = () => {
     };
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
-    const arrObj = useSelector(x => x.RecipeListSlice);
+    const arrObj = useRecipeListObj()
     const arr = [];
     arrObj.arr.map((element) => {
         if (element.like === true) {

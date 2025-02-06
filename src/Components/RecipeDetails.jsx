@@ -9,10 +9,11 @@ import { CssBaseline, Toolbar } from '@mui/material';
 import Footer from './Footer';
 import { Box } from '@mui/system';
 import { CssVarsProvider } from '@mui/joy';
+import useRecipeListObj from '../Hooks/useRecipeListObj';
 
 export default function RecipeDetails() {
   const { id } = useParams();
-  const arrObj = useSelector((state) => state.RecipeListSlice);
+  const arrObj = useRecipeListObj()
   const defaultElement = {
     id: 0,
     name: "ללא שם",

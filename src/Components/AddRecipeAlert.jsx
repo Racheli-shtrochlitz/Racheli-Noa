@@ -7,6 +7,7 @@ import { Button, Drawer, Box, TextField, Typography, MenuItem, Select, FormContr
 import { useSelector, useDispatch, Provider } from "react-redux"
 import { ReactReduxContext } from 'react-redux';
 import { AddRecipe } from "../Store/RecipeListSlice";
+import useRecipeListObj from "../Hooks/useRecipeListObj";
 
 const SignupSchema = yup.object().shape({
   name: yup.string().required("שם המתכון הוא שדה חובה"),
@@ -18,7 +19,7 @@ const SignupSchema = yup.object().shape({
 
 export default function AddRecipeAlert() {
   const dispatch = useDispatch();
-  const arrObj = useSelector(x => x.RecipeListSlice);
+  const arrObj = useRecipeListObj()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [preview, setPreview] = useState(null);
   const { register, handleSubmit, setValue, formState: { errors } } = useForm({

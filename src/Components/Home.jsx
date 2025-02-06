@@ -3,16 +3,10 @@ import ResponsiveAppBar from './ResponsiveAppBar';
 import ChangingText from './ChangingText';
 import recipe1 from '../img/11.jpg';
 import recipe2 from '../img/22.jpg';
-import { useSelector } from 'react-redux';
 import { Grid } from '@mui/joy';
 import { useEffect } from 'react';
 import Footer from './Footer';
-import { motion } from 'framer-motion';
-
-
 const Home = () => {
-    const arrObj = useSelector(x => x.RecipeListSlice);
-
     useEffect(() => {
         const handleScroll = () => {
             const parallax = document.querySelector('.parallax-container');

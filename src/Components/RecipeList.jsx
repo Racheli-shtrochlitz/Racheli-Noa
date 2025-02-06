@@ -12,10 +12,11 @@ import '../RecipeList.css';
 import AddRecipeAlert from './AddRecipeAlert'
 import { Toolbar } from '@mui/material';
 import Footer from './Footer';
+import useRecipeListObj from '../Hooks/useRecipeListObj';
 
 export default function RentalDashboard() {
     const dispatch = useDispatch();
-    const arrObj = useSelector(x => x.RecipeListSlice);
+    const arrObj = useRecipeListObj()
     return (
         <>
             <AddRecipeAlert />

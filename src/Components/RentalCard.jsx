@@ -12,6 +12,7 @@ import Star from '@mui/icons-material/Star';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChangeLike } from '../Store/RecipeListSlice';
 import { Link as RouterLink } from 'react-router-dom';
+import useRecipeListObj from '../Hooks/useRecipeListObj';
 type RentalCardProps = {
   index: number; // מזהה המתכון
   category: React.ReactNode; // קטגוריית המתכון
@@ -37,7 +38,7 @@ export default function RentalCard(props: RentalCardProps) {
   const [isLiked, setIsLiked] = React.useState(liked);
   // פונקציה לשינוי מצב הלייק
   const dispatch = useDispatch();
-  const arrObj = useSelector((x) => x.RecipeListSlice);
+  const arrObj = useRecipeListObj()
   const [isFilled, setIsFilled] = React.useState(false);
 
   return (
