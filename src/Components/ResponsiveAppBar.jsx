@@ -119,7 +119,7 @@ const ResponsiveAppBar = () => {
           ))}
         </Box>
 
-        {/* תפריט דפים*/}
+        {/* תפריט דפים למסכים קטנים*/}
         <Box sx={{ display: { xs: "flex", md: "none" } }}>
           <IconButton
             size="large"

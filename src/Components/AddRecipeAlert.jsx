@@ -1,15 +1,13 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Button, Drawer, Box, TextField, Typography, MenuItem, Select, FormControl, InputLabel } from "@mui/material";
-import { useSelector, useDispatch, Provider } from "react-redux"
-import { ReactReduxContext } from 'react-redux';
+import { useDispatch, Provider } from "react-redux"
 import { AddRecipe } from "../Store/RecipeListSlice";
 import useRecipeListObj from "../Hooks/useRecipeListObj";
 
-const SignupSchema = yup.object().shape({
+const SignupSchema = yup.object().shape({//סכמת אימות
   name: yup.string().required("שם המתכון הוא שדה חובה"),
   category: yup.string().required(" קטגוריה הוא שדה חובה"),
   time: yup.string().required("זמן הכנה הוא שדה חובה"),
@@ -27,8 +25,8 @@ export default function AddRecipeAlert() {
   });
   const onSubmit = (data) => {
     const formattedProducts = data.ingredients
-      .split("\n")
-      .map((line) => line.trim())
+      .split("\n")//חלוקה לרכיבים
+      .map((line) => line.trim())//סינון רווחים
       .filter((line) => line !== ""); // סינון שורות ריקות
     const formattedInstructions = data.instructions
       .split("\n")
@@ -108,7 +106,7 @@ export default function AddRecipeAlert() {
               fullWidth
               margin="normal"
               {...register("name")}
-              error={!!errors.name}
+              error={!!errors.name}//בשביל העיצוב של השגיאה
               helperText={errors.name?.message}
             />
 

@@ -8,10 +8,6 @@ import { logout } from '../Store/UserSlice';
 const Logout = () => {
     const dispatch = useDispatch(); // הפעלת useDispatch כאן
 
-    const handleGoHome = () => {
-        window.location.href = '/';
-    };
-
     const handleLogout = () => {
         dispatch(logout); 
         window.location.href = '/'; // הפניה לדף הבית

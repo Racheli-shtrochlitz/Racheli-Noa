@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,21 +9,19 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import {
   CssVarsProvider,
   CssBaseline,
-  Sheet,
   Typography,
   FormControl,
   FormLabel,
   Input,
   Button,
   useTheme,
-  Grid,
 } from '@mui/joy';
 import { useForm } from 'react-hook-form';
 import { Box } from '@mui/system';
 import '../LoginFinal.css';
 import { Toolbar } from '@mui/material';
 import Footer from './Footer';
-
+//סכמת אימות
 const SignupSchema = yup.object().shape({
   name: yup.string().required("נא להזין שם"),
   email: yup.string().email("כתובת מייל לא תקינה").required("נא להזין כתובת מייל"),
@@ -49,7 +46,7 @@ export default function LoginPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors },//מכיל שגיאות אימות
   } = useForm({
     resolver: yupResolver(SignupSchema),
   });
@@ -64,14 +61,14 @@ export default function LoginPage() {
     { test: (value) => /[@$!%*?&#]/.test(value), message: "תו מיוחד אחד לפחות" },
   ];
 
-  const validatePassword = (value) => {
+  const validatePassword = (value) => {//בדיקות תקינות הסיסמא בזמן אמת
     setPassword(value);
     if (value) setIsTyping(true);
 
     const failedRules = passwordRules
-      .filter((rule) => !rule.test(value))
-      .map((rule) => rule.message);
-    setPasswordErrors(failedRules);
+      .filter((rule) => !rule.test(value))//סינון הכללים שהסיסמא לא עומדת בהם
+      .map((rule) => rule.message);//המרת הכלל שלא עבר להודעת השגיאה המתאימה
+    setPasswordErrors(failedRules);//רשימה של הודעות השגיאה הרלוונטיות
   };
 
   const onSubmit = (data) => {

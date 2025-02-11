@@ -6,18 +6,17 @@ import ResponsiveAppBar from './ResponsiveAppBar';
 import { useSelector } from 'react-redux';
 import { Avatar } from '@mui/material';
 import { Toolbar } from '@mui/material';
-import Footer from './Footer';
 
 const Profile = () => {
   const userObj = useSelector(x => x.UserSlice);
-  const getInitial = (name) => {
+  const getInitial = (name) => {//החזרת האות הראשונה בשם המשתמש
     if (!name) return '?';
     return name.trim()[0].toUpperCase();
   };
   return (
     <>
       <ResponsiveAppBar />
-      {/* <Toolbar /> */}
+      <Toolbar />
       <div className="profile-container">
         <div className="profile-header">
           <h1>שלום, {userObj.name}</h1>

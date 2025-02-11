@@ -390,7 +390,7 @@ const recipeListSlice = createSlice({
     ChangeLike: (state, action) => {
       const { index, isLiked } = action.payload;
       if (state.arr[index]) {
-        const newArr = [...state.arr];
+        const newArr = [...state.arr];// העתק כדי להודיע לריאקט שנוצר שינוי בתוך אוביקט
         newArr[index] = { ...newArr[index], like: isLiked };
         return { ...state, arr: newArr };
       }

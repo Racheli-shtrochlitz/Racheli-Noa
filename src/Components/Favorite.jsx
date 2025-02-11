@@ -1,4 +1,3 @@
-import { useSelector } from "react-redux";
 import * as React from 'react';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import Typography from '@mui/material/Typography';
@@ -8,15 +7,13 @@ import { useNavigate } from "react-router-dom";
 import useRecipeListObj from "../Hooks/useRecipeListObj";
 const Favorite = () => {
     const navigate = useNavigate();
-
     const handleNavigation = (id) => {
         navigate(`/RecipeDetails/${id}`);
     };
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const arrObj = useRecipeListObj()
     const arr = [];
-    arrObj.arr.map((element) => {
+    arrObj.arr.map((element) => {//הכנסת המועדפים למערך
         if (element.like === true) {
             arr.push(element);
         }
@@ -61,7 +58,7 @@ const Favorite = () => {
                     open={Boolean(anchorElUser)}
                     onClose={handleCloseUserMenu}
                 >
-                    {arr && arr.length > 0 ? (arr.map((element) => (
+                    {arr && arr.length > 0 ? (arr.map((element) => (//רשימת המועדפים
                         <MenuItem key={element.id} onClick={() => { handleCloseUserMenu(); handleNavigation(element.id); }}>                            <Typography
                             sx={{
                                 textAlign: 'center',

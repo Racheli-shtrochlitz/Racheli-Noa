@@ -4,10 +4,8 @@ import CssBaseline from '@mui/joy/CssBaseline';
 import Box from '@mui/joy/Box';
 import Stack from '@mui/joy/Stack';
 import RentalCard from './RentalCard';
-import { useSelector, useDispatch, Provider } from "react-redux"
 import ResponsiveAppBar from './ResponsiveAppBar';
 import { Grid } from '@mui/joy';
-import { Link, useNavigate } from 'react-router-dom';
 import '../RecipeList.css';
 import AddRecipeAlert from './AddRecipeAlert'
 import { Toolbar } from '@mui/material';
@@ -15,7 +13,6 @@ import Footer from './Footer';
 import useRecipeListObj from '../Hooks/useRecipeListObj';
 
 export default function RentalDashboard() {
-    const dispatch = useDispatch();
     const arrObj = useRecipeListObj()
     return (
         <>
@@ -41,9 +38,6 @@ export default function RentalDashboard() {
                                                 ⏱ זמן הכנה: {element.time}
                                             </div>
                                         }
-                                        time={null}
-                                        products={element.products}
-                                        instructions={element.instructions}
                                         image={
                                             element.image && element.image.startsWith("data:image")
                                                 ? element.image

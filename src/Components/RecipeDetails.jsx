@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { useParams } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import ResponsiveAppBar from './ResponsiveAppBar';
 import '../Home.css';
 import '../RecipeDetails.css';
@@ -47,11 +45,8 @@ export default function RecipeDetails() {
         <div className="recipe-container">
           <Box sx={{
             display: 'flex',
-            //  justifyContent: 'center',
-            // alignItems: 'center',
             width: '50%',
             height: 'auto',
-            // textAlign: 'center',
             padding: '20px',
           }}>
             {imageSrc ? (

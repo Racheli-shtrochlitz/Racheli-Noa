@@ -4,11 +4,9 @@ import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
 import IconButton from '@mui/joy/IconButton';
-import Link from '@mui/joy/Link';
 import Stack from '@mui/joy/Stack';
 import Typography from '@mui/joy/Typography';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
-import Star from '@mui/icons-material/Star';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChangeLike } from '../Store/RecipeListSlice';
 import { Link as RouterLink } from 'react-router-dom';
@@ -19,9 +17,6 @@ type RentalCardProps = {
   image: string; // תמונת המתכון (תמונה כ-Base64 או נתיב מקומי)
   liked?: boolean; // האם המתכון אהוב (אופציונלי)
   title: React.ReactNode; // שם המתכון
-  time: string; // זמן הכנה
-  products: string[]; // רכיבים
-  instructions: string; // הוראות הכנה
 };
 export default function RentalCard(props: RentalCardProps) {
   const {
@@ -30,13 +25,9 @@ export default function RentalCard(props: RentalCardProps) {
     title,
     liked = false,
     image,
-    time,
-    products,
-    instructions
   } = props;
 
   const [isLiked, setIsLiked] = React.useState(liked);
-  // פונקציה לשינוי מצב הלייק
   const dispatch = useDispatch();
   const arrObj = useRecipeListObj()
   const [isFilled, setIsFilled] = React.useState(false);
@@ -111,7 +102,6 @@ export default function RentalCard(props: RentalCardProps) {
         }}
         sx={{
           fontSize: 40, // גודל הלב
-          // color: !isFilled ? 'primary.main' : 'white', // צבע המילוי בעת לחיצה (לבן כשלא מלא)
           WebkitTextStroke: '2px black', // מסגרת תמידית שחורה
           cursor: 'pointer', // מצביע עכבר
           transition: 'color 0.3s ease, transform 0.2s ease', // מעבר חלק ואנימציה
